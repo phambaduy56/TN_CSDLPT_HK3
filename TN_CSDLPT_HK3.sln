@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN_CSDLPT_HK3", "TN_CSDLPT_HK3\TN_CSDLPT_HK3.csproj", "{8211DF31-EF5A-4362-84F6-16392A0D8129}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8211DF31-EF5A-4362-84F6-16392A0D8129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8211DF31-EF5A-4362-84F6-16392A0D8129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8211DF31-EF5A-4362-84F6-16392A0D8129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8211DF31-EF5A-4362-84F6-16392A0D8129}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92434826-EFD1-47D1-98D1-ADCA5257170A}
+	EndGlobalSection
+EndGlobal
