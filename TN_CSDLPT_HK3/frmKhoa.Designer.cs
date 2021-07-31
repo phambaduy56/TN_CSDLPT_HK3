@@ -54,7 +54,7 @@
             this.bds_Khoa = new System.Windows.Forms.BindingSource(this.components);
             this.kHOATableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
-            this.kHOAGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_khoa = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,7 +72,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Khoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHOAGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_khoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gbKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMACS.Properties)).BeginInit();
@@ -318,19 +318,19 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // kHOAGridControl
+            // gc_khoa
             // 
-            this.kHOAGridControl.DataSource = this.bds_Khoa;
-            this.kHOAGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kHOAGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(24);
-            this.kHOAGridControl.Location = new System.Drawing.Point(0, 106);
-            this.kHOAGridControl.MainView = this.gridView1;
-            this.kHOAGridControl.Margin = new System.Windows.Forms.Padding(24);
-            this.kHOAGridControl.MenuManager = this.barManager1;
-            this.kHOAGridControl.Name = "kHOAGridControl";
-            this.kHOAGridControl.Size = new System.Drawing.Size(1279, 340);
-            this.kHOAGridControl.TabIndex = 6;
-            this.kHOAGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_khoa.DataSource = this.bds_Khoa;
+            this.gc_khoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gc_khoa.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(24);
+            this.gc_khoa.Location = new System.Drawing.Point(0, 106);
+            this.gc_khoa.MainView = this.gridView1;
+            this.gc_khoa.Margin = new System.Windows.Forms.Padding(24);
+            this.gc_khoa.MenuManager = this.barManager1;
+            this.gc_khoa.Name = "gc_khoa";
+            this.gc_khoa.Size = new System.Drawing.Size(1279, 340);
+            this.gc_khoa.TabIndex = 6;
+            this.gc_khoa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -340,7 +340,7 @@
             this.colTENKH,
             this.colMACS});
             this.gridView1.DetailHeight = 2600;
-            this.gridView1.GridControl = this.kHOAGridControl;
+            this.gridView1.GridControl = this.gc_khoa;
             this.gridView1.Name = "gridView1";
             // 
             // colMAKH
@@ -431,7 +431,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 579);
             this.Controls.Add(this.gbKhoa);
-            this.Controls.Add(this.kHOAGridControl);
+            this.Controls.Add(this.gc_khoa);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -445,7 +445,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Khoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHOAGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_khoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gbKhoa.ResumeLayout(false);
             this.gbKhoa.PerformLayout();
@@ -482,7 +482,7 @@
         private System.Windows.Forms.Label label1;
         private DSTableAdapters.KHOATableAdapter kHOATableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl kHOAGridControl;
+        private DevExpress.XtraGrid.GridControl gc_khoa;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENKH;

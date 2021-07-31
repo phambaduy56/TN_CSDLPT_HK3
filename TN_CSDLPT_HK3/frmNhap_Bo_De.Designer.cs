@@ -59,7 +59,7 @@
             this.bds_bode = new System.Windows.Forms.BindingSource(this.components);
             this.bODETableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.BODETableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
-            this.bODEGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_bode = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCAUHOI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,7 +96,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_bode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bODEGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_bode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gb_BoDe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauHoi.Properties)).BeginInit();
@@ -388,17 +388,17 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bODEGridControl
+            // gc_bode
             // 
-            this.bODEGridControl.DataSource = this.bds_bode;
-            this.bODEGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bODEGridControl.Location = new System.Drawing.Point(0, 106);
-            this.bODEGridControl.MainView = this.gridView1;
-            this.bODEGridControl.MenuManager = this.barManager1;
-            this.bODEGridControl.Name = "bODEGridControl";
-            this.bODEGridControl.Size = new System.Drawing.Size(1282, 251);
-            this.bODEGridControl.TabIndex = 7;
-            this.bODEGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_bode.DataSource = this.bds_bode;
+            this.gc_bode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gc_bode.Location = new System.Drawing.Point(0, 106);
+            this.gc_bode.MainView = this.gridView1;
+            this.gc_bode.MenuManager = this.barManager1;
+            this.gc_bode.Name = "gc_bode";
+            this.gc_bode.Size = new System.Drawing.Size(1282, 251);
+            this.gc_bode.TabIndex = 7;
+            this.gc_bode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -414,7 +414,7 @@
             this.colD,
             this.colDAP_AN,
             this.colMAGV});
-            this.gridView1.GridControl = this.bODEGridControl;
+            this.gridView1.GridControl = this.gc_bode;
             this.gridView1.Name = "gridView1";
             // 
             // colCAUHOI
@@ -664,7 +664,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 638);
             this.Controls.Add(this.gb_BoDe);
-            this.Controls.Add(this.bODEGridControl);
+            this.Controls.Add(this.gc_bode);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -678,7 +678,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_bode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bODEGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_bode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gb_BoDe.ResumeLayout(false);
             this.gb_BoDe.PerformLayout();
@@ -718,7 +718,7 @@
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.GroupBox gb_BoDe;
         private DevExpress.XtraEditors.TextEdit txtMAMH;
-        private DevExpress.XtraGrid.GridControl bODEGridControl;
+        private DevExpress.XtraGrid.GridControl gc_bode;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colCAUHOI;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;

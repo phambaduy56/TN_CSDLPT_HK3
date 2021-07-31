@@ -53,7 +53,7 @@
             this.lOPTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
             this.kHOATableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.KHOATableAdapter();
-            this.lOPGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_Lop = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,7 +74,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Lop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Lop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gbLop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).BeginInit();
@@ -306,17 +306,17 @@
             // 
             this.kHOATableAdapter.ClearBeforeFill = true;
             // 
-            // lOPGridControl
+            // gc_Lop
             // 
-            this.lOPGridControl.DataSource = this.bds_Lop;
-            this.lOPGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lOPGridControl.Location = new System.Drawing.Point(0, 106);
-            this.lOPGridControl.MainView = this.gridView1;
-            this.lOPGridControl.MenuManager = this.barManager1;
-            this.lOPGridControl.Name = "lOPGridControl";
-            this.lOPGridControl.Size = new System.Drawing.Size(1266, 293);
-            this.lOPGridControl.TabIndex = 6;
-            this.lOPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_Lop.DataSource = this.bds_Lop;
+            this.gc_Lop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gc_Lop.Location = new System.Drawing.Point(0, 106);
+            this.gc_Lop.MainView = this.gridView1;
+            this.gc_Lop.MenuManager = this.barManager1;
+            this.gc_Lop.Name = "gc_Lop";
+            this.gc_Lop.Size = new System.Drawing.Size(1266, 293);
+            this.gc_Lop.TabIndex = 6;
+            this.gc_Lop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -325,7 +325,7 @@
             this.colMALOP,
             this.colTENLOP,
             this.colMAKH});
-            this.gridView1.GridControl = this.lOPGridControl;
+            this.gridView1.GridControl = this.gc_Lop;
             this.gridView1.Name = "gridView1";
             // 
             // colMALOP
@@ -437,7 +437,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1266, 594);
             this.Controls.Add(this.gbLop);
-            this.Controls.Add(this.lOPGridControl);
+            this.Controls.Add(this.gc_Lop);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -451,7 +451,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Lop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Lop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gbLop.ResumeLayout(false);
             this.gbLop.PerformLayout();
@@ -487,7 +487,7 @@
         private System.Windows.Forms.Label label1;
         private DSTableAdapters.LOPTableAdapter lOPTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl lOPGridControl;
+        private DevExpress.XtraGrid.GridControl gc_Lop;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.GroupBox gbLop;
         private DevExpress.XtraEditors.TextEdit txtTENLOP;

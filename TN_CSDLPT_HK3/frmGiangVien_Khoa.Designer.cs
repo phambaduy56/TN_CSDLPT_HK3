@@ -54,7 +54,7 @@
             this.kHOATableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
             this.gIAOVIENTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.GIAOVIENTableAdapter();
-            this.kHOAGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_khoa = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,7 +65,7 @@
             this.txtTEN = new DevExpress.XtraEditors.TextEdit();
             this.txtHO = new DevExpress.XtraEditors.TextEdit();
             this.txtMAGV = new DevExpress.XtraEditors.TextEdit();
-            this.gIAOVIENGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_giaovien = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,7 +80,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Khoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHOAGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_khoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gbGiaoVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -88,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_giaovien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -326,17 +326,17 @@
             // 
             this.gIAOVIENTableAdapter.ClearBeforeFill = true;
             // 
-            // kHOAGridControl
+            // gc_khoa
             // 
-            this.kHOAGridControl.DataSource = this.bds_Khoa;
-            this.kHOAGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kHOAGridControl.Location = new System.Drawing.Point(0, 106);
-            this.kHOAGridControl.MainView = this.gridView1;
-            this.kHOAGridControl.MenuManager = this.barManager1;
-            this.kHOAGridControl.Name = "kHOAGridControl";
-            this.kHOAGridControl.Size = new System.Drawing.Size(1271, 220);
-            this.kHOAGridControl.TabIndex = 7;
-            this.kHOAGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_khoa.DataSource = this.bds_Khoa;
+            this.gc_khoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gc_khoa.Location = new System.Drawing.Point(0, 106);
+            this.gc_khoa.MainView = this.gridView1;
+            this.gc_khoa.MenuManager = this.barManager1;
+            this.gc_khoa.Name = "gc_khoa";
+            this.gc_khoa.Size = new System.Drawing.Size(1271, 220);
+            this.gc_khoa.TabIndex = 7;
+            this.gc_khoa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -345,7 +345,7 @@
             this.colMAKH,
             this.colTENKH,
             this.colMACS});
-            this.gridView1.GridControl = this.kHOAGridControl;
+            this.gridView1.GridControl = this.gc_khoa;
             this.gridView1.Name = "gridView1";
             // 
             // colMAKH
@@ -440,17 +440,17 @@
             this.txtMAGV.Size = new System.Drawing.Size(332, 22);
             this.txtMAGV.TabIndex = 1;
             // 
-            // gIAOVIENGridControl
+            // gc_giaovien
             // 
-            this.gIAOVIENGridControl.DataSource = this.bds_GiaoVien;
-            this.gIAOVIENGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gIAOVIENGridControl.Location = new System.Drawing.Point(573, 326);
-            this.gIAOVIENGridControl.MainView = this.gridView2;
-            this.gIAOVIENGridControl.MenuManager = this.barManager1;
-            this.gIAOVIENGridControl.Name = "gIAOVIENGridControl";
-            this.gIAOVIENGridControl.Size = new System.Drawing.Size(698, 277);
-            this.gIAOVIENGridControl.TabIndex = 8;
-            this.gIAOVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_giaovien.DataSource = this.bds_GiaoVien;
+            this.gc_giaovien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_giaovien.Location = new System.Drawing.Point(573, 326);
+            this.gc_giaovien.MainView = this.gridView2;
+            this.gc_giaovien.MenuManager = this.barManager1;
+            this.gc_giaovien.Name = "gc_giaovien";
+            this.gc_giaovien.Size = new System.Drawing.Size(698, 277);
+            this.gc_giaovien.TabIndex = 8;
+            this.gc_giaovien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
@@ -461,7 +461,7 @@
             this.colTEN,
             this.colDIACHI,
             this.colMAKH1});
-            this.gridView2.GridControl = this.gIAOVIENGridControl;
+            this.gridView2.GridControl = this.gc_giaovien;
             this.gridView2.Name = "gridView2";
             // 
             // colMAGV
@@ -524,9 +524,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1271, 603);
-            this.Controls.Add(this.gIAOVIENGridControl);
+            this.Controls.Add(this.gc_giaovien);
             this.Controls.Add(this.gbGiaoVien);
-            this.Controls.Add(this.kHOAGridControl);
+            this.Controls.Add(this.gc_khoa);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -540,7 +540,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Khoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHOAGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_khoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gbGiaoVien.ResumeLayout(false);
             this.gbGiaoVien.PerformLayout();
@@ -549,7 +549,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_giaovien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -579,14 +579,14 @@
         private DSTableAdapters.KHOATableAdapter kHOATableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.GroupBox gbGiaoVien;
-        private DevExpress.XtraGrid.GridControl kHOAGridControl;
+        private DevExpress.XtraGrid.GridControl gc_khoa;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENKH;
         private DevExpress.XtraGrid.Columns.GridColumn colMACS;
         private DSTableAdapters.GIAOVIENTableAdapter gIAOVIENTableAdapter;
         private System.Windows.Forms.BindingSource bds_GiaoVien;
-        private DevExpress.XtraGrid.GridControl gIAOVIENGridControl;
+        private DevExpress.XtraGrid.GridControl gc_giaovien;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;

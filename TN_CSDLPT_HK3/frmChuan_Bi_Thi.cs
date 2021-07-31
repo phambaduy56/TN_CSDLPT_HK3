@@ -232,6 +232,7 @@ namespace TN_CSDLPT_HK3
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThoat.Enabled = btnPhucHoi.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
             gb_DangKy.Enabled = false;
+            gc_giaoviendk.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -239,6 +240,7 @@ namespace TN_CSDLPT_HK3
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
             gb_DangKy.Enabled = true;
+            gc_giaoviendk.Enabled = false;
         }
 
     }

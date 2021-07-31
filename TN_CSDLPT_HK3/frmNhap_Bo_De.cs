@@ -243,6 +243,7 @@ namespace TN_CSDLPT_HK3
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThoat.Enabled = btnPhucHoi.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
             gb_BoDe.Enabled = false;
+            gc_bode.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -250,6 +251,7 @@ namespace TN_CSDLPT_HK3
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
             gb_BoDe.Enabled = true;
+            gc_bode.Enabled = false;
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

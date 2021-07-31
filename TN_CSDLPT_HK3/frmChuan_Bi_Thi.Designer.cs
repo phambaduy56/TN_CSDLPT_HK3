@@ -57,7 +57,7 @@
             this.bds_GVDK = new System.Windows.Forms.BindingSource(this.components);
             this.gIAOVIEN_DANGKYTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
-            this.gIAOVIEN_DANGKYGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_giaoviendk = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -93,7 +93,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_GVDK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_giaoviendk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gb_DangKy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bds_LOP)).BeginInit();
@@ -372,17 +372,17 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // gIAOVIEN_DANGKYGridControl
+            // gc_giaoviendk
             // 
-            this.gIAOVIEN_DANGKYGridControl.DataSource = this.bds_GVDK;
-            this.gIAOVIEN_DANGKYGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gIAOVIEN_DANGKYGridControl.Location = new System.Drawing.Point(0, 106);
-            this.gIAOVIEN_DANGKYGridControl.MainView = this.gridView1;
-            this.gIAOVIEN_DANGKYGridControl.MenuManager = this.barManager1;
-            this.gIAOVIEN_DANGKYGridControl.Name = "gIAOVIEN_DANGKYGridControl";
-            this.gIAOVIEN_DANGKYGridControl.Size = new System.Drawing.Size(1305, 220);
-            this.gIAOVIEN_DANGKYGridControl.TabIndex = 8;
-            this.gIAOVIEN_DANGKYGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_giaoviendk.DataSource = this.bds_GVDK;
+            this.gc_giaoviendk.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gc_giaoviendk.Location = new System.Drawing.Point(0, 106);
+            this.gc_giaoviendk.MainView = this.gridView1;
+            this.gc_giaoviendk.MenuManager = this.barManager1;
+            this.gc_giaoviendk.Name = "gc_giaoviendk";
+            this.gc_giaoviendk.Size = new System.Drawing.Size(1305, 220);
+            this.gc_giaoviendk.TabIndex = 8;
+            this.gc_giaoviendk.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -396,7 +396,7 @@
             this.colLAN,
             this.colSOCAUTHI,
             this.colTHOIGIAN});
-            this.gridView1.GridControl = this.gIAOVIEN_DANGKYGridControl;
+            this.gridView1.GridControl = this.gc_giaoviendk;
             this.gridView1.Name = "gridView1";
             // 
             // colMAGV
@@ -660,7 +660,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 614);
             this.Controls.Add(this.gb_DangKy);
-            this.Controls.Add(this.gIAOVIEN_DANGKYGridControl);
+            this.Controls.Add(this.gc_giaoviendk);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -674,7 +674,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_GVDK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIEN_DANGKYGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_giaoviendk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gb_DangKy.ResumeLayout(false);
             this.gb_DangKy.PerformLayout();
@@ -718,7 +718,7 @@
         private DevExpress.XtraEditors.DateEdit nGAYTHIDateEdit;
         private System.Windows.Forms.ComboBox tRINHDOComboBox;
         private DevExpress.XtraEditors.TextEdit txt_MAGV;
-        private DevExpress.XtraGrid.GridControl gIAOVIEN_DANGKYGridControl;
+        private DevExpress.XtraGrid.GridControl gc_giaoviendk;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;

@@ -51,7 +51,7 @@
             this.bds_MonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
-            this.mONHOCGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_monhoc = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,7 +64,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mONHOCGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_monhoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gbMonHoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).BeginInit();
@@ -279,19 +279,19 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mONHOCGridControl
+            // gc_monhoc
             // 
-            this.mONHOCGridControl.DataSource = this.bds_MonHoc;
-            this.mONHOCGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mONHOCGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12);
-            this.mONHOCGridControl.Location = new System.Drawing.Point(0, 106);
-            this.mONHOCGridControl.MainView = this.gridView1;
-            this.mONHOCGridControl.Margin = new System.Windows.Forms.Padding(12);
-            this.mONHOCGridControl.MenuManager = this.barManager1;
-            this.mONHOCGridControl.Name = "mONHOCGridControl";
-            this.mONHOCGridControl.Size = new System.Drawing.Size(1221, 304);
-            this.mONHOCGridControl.TabIndex = 6;
-            this.mONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_monhoc.DataSource = this.bds_MonHoc;
+            this.gc_monhoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gc_monhoc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12);
+            this.gc_monhoc.Location = new System.Drawing.Point(0, 106);
+            this.gc_monhoc.MainView = this.gridView1;
+            this.gc_monhoc.Margin = new System.Windows.Forms.Padding(12);
+            this.gc_monhoc.MenuManager = this.barManager1;
+            this.gc_monhoc.Name = "gc_monhoc";
+            this.gc_monhoc.Size = new System.Drawing.Size(1221, 304);
+            this.gc_monhoc.TabIndex = 6;
+            this.gc_monhoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -300,7 +300,7 @@
             this.colMAMH,
             this.colTENMH});
             this.gridView1.DetailHeight = 1331;
-            this.gridView1.GridControl = this.mONHOCGridControl;
+            this.gridView1.GridControl = this.gc_monhoc;
             this.gridView1.Name = "gridView1";
             // 
             // colMAMH
@@ -363,7 +363,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1221, 620);
             this.Controls.Add(this.gbMonHoc);
-            this.Controls.Add(this.mONHOCGridControl);
+            this.Controls.Add(this.gc_monhoc);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -377,7 +377,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mONHOCGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_monhoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gbMonHoc.ResumeLayout(false);
             this.gbMonHoc.PerformLayout();
@@ -412,7 +412,7 @@
         private System.Windows.Forms.GroupBox gbMonHoc;
         private DevExpress.XtraEditors.TextEdit txtTENMH;
         private DevExpress.XtraEditors.TextEdit txtMAMH;
-        private DevExpress.XtraGrid.GridControl mONHOCGridControl;
+        private DevExpress.XtraGrid.GridControl gc_monhoc;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;

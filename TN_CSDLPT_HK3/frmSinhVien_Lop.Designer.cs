@@ -63,13 +63,13 @@
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gb_SinhVien = new System.Windows.Forms.GroupBox();
-            this.bds_SinhVien = new System.Windows.Forms.BindingSource(this.components);
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
+            this.bds_SinhVien = new System.Windows.Forms.BindingSource(this.components);
             this.date_NgaySinh = new DevExpress.XtraEditors.DateEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtMaSv = new DevExpress.XtraEditors.TextEdit();
-            this.sINHVIENGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gc_sinhvien = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -90,14 +90,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc_lop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gb_SinhVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bds_SinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_SinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_NgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_NgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaSv.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_sinhvien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_BangDiem)).BeginInit();
             this.SuspendLayout();
@@ -416,11 +416,6 @@
             this.gb_SinhVien.TabStop = false;
             this.gb_SinhVien.Text = "groupBox1";
             // 
-            // bds_SinhVien
-            // 
-            this.bds_SinhVien.DataMember = "FK_SINHVIEN_LOP";
-            this.bds_SinhVien.DataSource = this.bds_Lop;
-            // 
             // txtDiaChi
             // 
             this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_SinhVien, "DIACHI", true));
@@ -429,6 +424,11 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(225, 22);
             this.txtDiaChi.TabIndex = 9;
+            // 
+            // bds_SinhVien
+            // 
+            this.bds_SinhVien.DataMember = "FK_SINHVIEN_LOP";
+            this.bds_SinhVien.DataSource = this.bds_Lop;
             // 
             // date_NgaySinh
             // 
@@ -471,17 +471,17 @@
             this.txtMaSv.Size = new System.Drawing.Size(225, 22);
             this.txtMaSv.TabIndex = 1;
             // 
-            // sINHVIENGridControl
+            // gc_sinhvien
             // 
-            this.sINHVIENGridControl.DataSource = this.bds_SinhVien;
-            this.sINHVIENGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sINHVIENGridControl.Location = new System.Drawing.Point(448, 279);
-            this.sINHVIENGridControl.MainView = this.gridView2;
-            this.sINHVIENGridControl.MenuManager = this.barManager1;
-            this.sINHVIENGridControl.Name = "sINHVIENGridControl";
-            this.sINHVIENGridControl.Size = new System.Drawing.Size(934, 311);
-            this.sINHVIENGridControl.TabIndex = 18;
-            this.sINHVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_sinhvien.DataSource = this.bds_SinhVien;
+            this.gc_sinhvien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_sinhvien.Location = new System.Drawing.Point(448, 279);
+            this.gc_sinhvien.MainView = this.gridView2;
+            this.gc_sinhvien.MenuManager = this.barManager1;
+            this.gc_sinhvien.Name = "gc_sinhvien";
+            this.gc_sinhvien.Size = new System.Drawing.Size(934, 311);
+            this.gc_sinhvien.TabIndex = 18;
+            this.gc_sinhvien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
@@ -493,7 +493,7 @@
             this.colNGAYSINH,
             this.colDIACHI,
             this.colMALOP1});
-            this.gridView2.GridControl = this.sINHVIENGridControl;
+            this.gridView2.GridControl = this.gc_sinhvien;
             this.gridView2.Name = "gridView2";
             // 
             // colMASV
@@ -572,7 +572,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 590);
-            this.Controls.Add(this.sINHVIENGridControl);
+            this.Controls.Add(this.gc_sinhvien);
             this.Controls.Add(this.gb_SinhVien);
             this.Controls.Add(this.gc_lop);
             this.Controls.Add(this.panel1);
@@ -592,14 +592,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gb_SinhVien.ResumeLayout(false);
             this.gb_SinhVien.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bds_SinhVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_SinhVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_NgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_NgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaSv.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_sinhvien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_BangDiem)).EndInit();
             this.ResumeLayout(false);
@@ -637,7 +637,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private DSTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private System.Windows.Forms.BindingSource bds_SinhVien;
-        private DevExpress.XtraGrid.GridControl sINHVIENGridControl;
+        private DevExpress.XtraGrid.GridControl gc_sinhvien;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
