@@ -33,15 +33,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v19.2" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v19.2" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.2" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v19.2" />
     <Reference Include="DevExpress.Sparkline.v19.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.2" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
@@ -61,6 +72,9 @@
     </Compile>
     <Compile Include="cauhoi.Designer.cs">
       <DependentUpon>cauhoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -90,6 +104,12 @@
     </Compile>
     <Compile Include="frmGiangVien_Khoa.Designer.cs">
       <DependentUpon>frmGiangVien_Khoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInBangDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInBangDiem.Designer.cs">
+      <DependentUpon>frmInBangDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmKhoa.cs">
       <SubType>Form</SubType>
@@ -127,12 +147,48 @@
     <Compile Include="frmThi.Designer.cs">
       <DependentUpon>frmThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="InBaiThi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InBaiThi.Designer.cs">
+      <DependentUpon>InBaiThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inBangDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="inBangDiem.Designer.cs">
+      <DependentUpon>inBangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InKetQuaThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InKetQuaThi.Designer.cs">
+      <DependentUpon>InKetQuaThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TN_CSDLPTDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TN_CSDLPTDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TN_CSDLPTDataSet1.cs">
+      <DependentUpon>TN_CSDLPTDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TN_CSDLPTDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TN_CSDLPTDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TN_CSDLPTDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TN_CSDLPTDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TN_CSDLPTDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TN_CSDLPTDataSet3.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="cauhoi.resx">
       <DependentUpon>cauhoi.cs</DependentUpon>
@@ -148,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiangVien_Khoa.resx">
       <DependentUpon>frmGiangVien_Khoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInBangDiem.resx">
+      <DependentUpon>frmInBangDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhoa.resx">
       <DependentUpon>frmKhoa.cs</DependentUpon>
@@ -166,6 +225,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThi.resx">
       <DependentUpon>frmThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InBaiThi.resx">
+      <DependentUpon>InBaiThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inBangDiem.resx">
+      <DependentUpon>inBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InKetQuaThi.resx">
+      <DependentUpon>InKetQuaThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -209,6 +277,39 @@
     </None>
     <None Include="TN_CSDLPTDataSet.xss">
       <DependentUpon>TN_CSDLPTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TN_CSDLPTDataSet1.xsc">
+      <DependentUpon>TN_CSDLPTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TN_CSDLPTDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TN_CSDLPTDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TN_CSDLPTDataSet1.xss">
+      <DependentUpon>TN_CSDLPTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TN_CSDLPTDataSet2.xsc">
+      <DependentUpon>TN_CSDLPTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TN_CSDLPTDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TN_CSDLPTDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TN_CSDLPTDataSet2.xss">
+      <DependentUpon>TN_CSDLPTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TN_CSDLPTDataSet3.xsc">
+      <DependentUpon>TN_CSDLPTDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TN_CSDLPTDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TN_CSDLPTDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TN_CSDLPTDataSet3.xss">
+      <DependentUpon>TN_CSDLPTDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

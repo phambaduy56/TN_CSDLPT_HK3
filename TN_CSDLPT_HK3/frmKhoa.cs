@@ -124,13 +124,53 @@ namespace TN_CSDLPT_HK3
             Hien_thi_khi_them();
         }
 
+        private bool kiem_tra_ma_khoa()
+        {
+            string str = "exec SP_KIEM_MA_KHOA N'" + txtMAKH.Text + "'";
+
+            Program.myReader = Program.ExecSqlDataReader(str);
+            Program.myReader.Read();
+
+            String kq = Program.myReader.GetString(0);
+            Program.myReader.Close();
+            if (kq == "1")
+            {
+                return true;
+            }
+            return false;
+        }
+
         private bool kiemTraTruocKhiGhi()
         {
+            if(kiem_tra_ma_khoa() == true)
+            {
+                MessageBox.Show("Mã khoa không được trùng!");
+                txtMAKH.Focus();
+                return false;
+            }
            
             if (txtMAKH.Text == "")
             {
                 MessageBox.Show("Mã khoa không được để rỗng!");
                 txtMAKH.Focus();
+                return false;
+            }
+            if(txtMAKH.Text.Length > 8)
+            {
+                MessageBox.Show("Mã khoa không được lớn hơn 8 ký tự!");
+                txtMAKH.Focus();
+                return false;
+            }
+            if (txtTENKH.Text == "")
+            {
+                MessageBox.Show("Tên khoa không được để rỗng!");
+                txtTENKH.Focus();
+                return false;
+            }
+            if (txtTENKH.Text.Length > 50)
+            {
+                MessageBox.Show("Tên khoa không được lớn hơn 50 ký tự!");
+                txtTENKH.Focus();
                 return false;
             }
 

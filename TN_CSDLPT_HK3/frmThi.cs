@@ -41,7 +41,7 @@ namespace TN_CSDLPT_HK3
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
 
-            if (Program.mGroup == "GIANGVIEN")
+            if (Program.mGroup == "GIANGVIEN" || Program.mGroup == "COSO")
             {
                 lb_1.Text = "MÃ GV:";
                 lb_3.Text = "TÊN GV: ";
@@ -163,12 +163,13 @@ namespace TN_CSDLPT_HK3
                 }
                 Program.myReader.Close();
 
-                cmb_MonHoc.Enabled = false;
-                date_NgayThi.Enabled = false;
-                spin_LanThi.Enabled = false;
-                btn_BatDau.Enabled = true;
-                btn_Tim.Enabled = false;
-            }        
+                
+            }
+            cmb_MonHoc.Enabled = false;
+            date_NgayThi.Enabled = false;
+            spin_LanThi.Enabled = false;
+            btn_BatDau.Enabled = true;
+            btn_Tim.Enabled = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -12,6 +12,7 @@ namespace TN_CSDLPT_HK3
 {
     public partial class frmGiangVien_Khoa : Form
     {
+        // bds gia
         private BindingSource bds = new BindingSource();
         private int vitri = 0;
         String maKhoa = "";
@@ -56,7 +57,7 @@ namespace TN_CSDLPT_HK3
             {
                 //bat tat theo phan quyen
                 cmbCoSo.Enabled = true;
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThoat.Enabled = btnPhucHoi.Enabled = false;
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = false;
                 btnGhi.Enabled = btnHuy.Enabled = false;
                 gbGiaoVien.Enabled = false;
             }
@@ -80,7 +81,7 @@ namespace TN_CSDLPT_HK3
 
             if (cmbCoSo.SelectedIndex != Program.mCoSo)
             {
-                Program.mlogin = Program.remotelogin;
+                Program.mlogin = Program.remotelogin; 
                 Program.password = Program.remotepassword;
             }
             else

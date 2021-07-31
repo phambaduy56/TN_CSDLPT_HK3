@@ -132,15 +132,53 @@ namespace TN_CSDLPT_HK3
             
         }
 
+        private bool kiem_tra_ma_LOP()
+        {
+            string str = "exec SP_KIEM_MA_LOP N'" + txtMLOP.Text + "'";
+
+            Program.myReader = Program.ExecSqlDataReader(str);
+            Program.myReader.Read();
+
+            String kq = Program.myReader.GetString(0);
+            Program.myReader.Close();
+            if (kq == "1")
+            {
+                return true;
+            }
+            return false;
+        }
+
         private bool kiemTraTruocKhiGhi()
         {
-
+            if(kiem_tra_ma_LOP() == true)
+            {
+                MessageBox.Show("Mã lớp bị trùng!");
+                txtMLOP.Focus();
+                return false;
+            }
             if (txtMLOP.Text == "")
             {
                 MessageBox.Show("Mã lớp không được để rỗng!");
                 txtMLOP.Focus();
                 return false;
             }
+            if(txtMLOP.Text.Length > 8)
+            {
+                MessageBox.Show("Mã Lớp không được lớn hơn 8 ký tự");
+            }
+            if (txtTENLOP.Text == "")
+            {
+                MessageBox.Show("Tên lớp không được để rỗng!");
+                txtTENLOP.Focus();
+                return false;
+            }
+            if (txtTENLOP.Text.Length > 40)
+            {
+                MessageBox.Show("Tên lớp không được lớn hơn  ký tự");
+                txtTENLOP.Focus();
+                return false;
+            }
+
 
 
             return true;

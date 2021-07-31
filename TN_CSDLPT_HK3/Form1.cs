@@ -32,6 +32,7 @@ namespace TN_CSDLPT_HK3
                     btn_ban_dau();
                     btn_BoDe.Enabled = true;
                     btnThi.Enabled = true;
+                    
                 }
                 if(Program.mGroup == "TRUONG")
                 {
@@ -55,6 +56,8 @@ namespace TN_CSDLPT_HK3
             btnMonHoc.Enabled = btn_Khoa.Enabled = btn_Lop.Enabled = btn_GiangVien.Enabled
                 = btn_SinhVien.Enabled = btn_BoDe.Enabled = btn_ChuanBiThi.Enabled =
                 btnThi.Enabled = false;
+            btnInBangDiem.Enabled = false;
+            btnInBaiThi.Enabled = false;
         }
 
         private Form CheckExists(Type ftype)
@@ -156,6 +159,30 @@ namespace TN_CSDLPT_HK3
             else
             {
                 frmThi f = new frmThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(InKetQuaThi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                InKetQuaThi f = new InKetQuaThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem2_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmInBangDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmInBangDiem f = new frmInBangDiem();
                 f.MdiParent = this;
                 f.Show();
             }
