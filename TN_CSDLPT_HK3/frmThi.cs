@@ -198,6 +198,7 @@ namespace TN_CSDLPT_HK3
                 spin_LanThi.Enabled = true;
                 btn_BatDau.Enabled = false;
                 btn_Tim.Enabled = true;
+                btnThoat.Enabled = true;
             }
         }
 
@@ -354,6 +355,7 @@ namespace TN_CSDLPT_HK3
                 timer1.Start();
 
                 loadCauHoiThi();
+                btnThoat.Enabled = false;
             }
             else
             {
@@ -372,6 +374,7 @@ namespace TN_CSDLPT_HK3
                         cmb_MonHoc.Enabled = true;
                         date_NgayThi.Enabled = true;
                         spin_LanThi.Enabled = true;
+                        
                     }    
                     else
                     {
@@ -384,19 +387,26 @@ namespace TN_CSDLPT_HK3
 
                         MessageBox.Show("Bạn đã đạt được " + diem + " điểm!", "", MessageBoxButtons.OK);
                         timeOut = false;
-
                         cmb_MonHoc.Enabled = true;
                         date_NgayThi.Enabled = true;
                         spin_LanThi.Enabled = true;
-                        btn_BatDau.Enabled = false;
-                        btn_Tim.Enabled = true;
+                        
                     }
-        
+                    
+                    btn_BatDau.Enabled = false;
+                    btn_Tim.Enabled = true;
+                    btnThoat.Enabled = true;
+
                 }    
             }    
         }
 
-       
-
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn thật sự muốn thoát khỏi form?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.lOPTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
             this.mONHOCTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.MONHOCTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             tENLOPLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
@@ -114,6 +115,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnInBaoCao);
             this.panel2.Controls.Add(tENMHLabel);
             this.panel2.Controls.Add(this.cmbMonHoc);
@@ -214,6 +216,18 @@
             // 
             this.mONHOCTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1058, 130);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 49);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "THOÁT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmInBangDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,5 +266,6 @@
         private DevExpress.XtraEditors.SpinEdit spin_Lan;
         private System.Windows.Forms.ComboBox cmbMonHoc;
         private System.Windows.Forms.Button btnInBaoCao;
+        private System.Windows.Forms.Button button1;
     }
 }

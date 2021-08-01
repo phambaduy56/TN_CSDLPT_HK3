@@ -129,7 +129,7 @@ namespace TN_CSDLPT_HK3
             Program.control = "Sua";
             vitri = bds_Lop.Position;
             Hien_thi_khi_them();
-            
+            cmbMAKH.Enabled = false;
         }
 
         private bool kiem_tra_ma_LOP()
@@ -150,12 +150,7 @@ namespace TN_CSDLPT_HK3
 
         private bool kiemTraTruocKhiGhi()
         {
-            if(kiem_tra_ma_LOP() == true)
-            {
-                MessageBox.Show("Mã lớp bị trùng!");
-                txtMLOP.Focus();
-                return false;
-            }
+           
             if (txtMLOP.Text == "")
             {
                 MessageBox.Show("Mã lớp không được để rỗng!");
@@ -192,6 +187,13 @@ namespace TN_CSDLPT_HK3
                 {
                     if (kiemTraTruocKhiGhi())
                     {
+                        if (kiem_tra_ma_LOP() == true)
+                        {
+                            MessageBox.Show("Mã lớp bị trùng!");
+                            txtMLOP.Focus();
+                            return ;
+                        }
+
                         bds_Lop.EndEdit();
                         bds_Lop.ResetCurrentItem();
                         this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -204,8 +206,7 @@ namespace TN_CSDLPT_HK3
                 }
                 if (Program.control == "Sua")
                 {
-                    if (kiemTraTruocKhiGhi())
-                    {
+
                         bds_Lop.EndEdit();
                         bds_Lop.ResetCurrentItem();
                         this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -213,7 +214,7 @@ namespace TN_CSDLPT_HK3
 
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
-                    }
+                        cmbMAKH.Enabled = true;
                 }
             }
             catch (Exception ex)

@@ -212,3 +212,5 @@ C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.I
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.InKetQuaThi.resources
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.frmInBangDiem.resources
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.inBangDiem.resources
+C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.frmDanhSachDangKyThi.resources
+C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.InDanhSachDangKyThi.resources

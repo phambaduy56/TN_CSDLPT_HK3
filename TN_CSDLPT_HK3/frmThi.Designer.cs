@@ -62,6 +62,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.baithiTableAdapter1 = new TN_CSDLPT_HK3.DSTableAdapters.BAITHITableAdapter();
             this.panel_thi = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnThoat = new System.Windows.Forms.Button();
             mAMHLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,6 +87,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.time_Thi);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lb_TENLOP);
@@ -110,7 +112,7 @@
             // 
             this.time_Thi.AutoSize = true;
             this.time_Thi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time_Thi.Location = new System.Drawing.Point(1090, 39);
+            this.time_Thi.Location = new System.Drawing.Point(1020, 46);
             this.time_Thi.Name = "time_Thi";
             this.time_Thi.Size = new System.Drawing.Size(107, 39);
             this.time_Thi.TabIndex = 9;
@@ -120,7 +122,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(929, 46);
+            this.label10.Location = new System.Drawing.Point(859, 53);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(155, 29);
             this.label10.TabIndex = 8;
@@ -225,7 +227,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1353, 124);
+            this.groupBox2.Size = new System.Drawing.Size(1353, 137);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin thi";
@@ -419,10 +421,20 @@
             // 
             this.panel_thi.AutoScroll = true;
             this.panel_thi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_thi.Location = new System.Drawing.Point(0, 251);
+            this.panel_thi.Location = new System.Drawing.Point(0, 264);
             this.panel_thi.Name = "panel_thi";
-            this.panel_thi.Size = new System.Drawing.Size(1353, 337);
+            this.panel_thi.Size = new System.Drawing.Size(1353, 324);
             this.panel_thi.TabIndex = 2;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(1193, 46);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(137, 39);
+            this.btnThoat.TabIndex = 14;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmThi
             // 
@@ -484,5 +496,6 @@
         private System.Windows.Forms.Button btn_BatDau;
         private DSTableAdapters.BAITHITableAdapter baithiTableAdapter1;
         private System.Windows.Forms.FlowLayoutPanel panel_thi;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

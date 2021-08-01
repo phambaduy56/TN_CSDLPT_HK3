@@ -33,6 +33,8 @@ namespace TN_CSDLPT_HK3
 
         private void frmNhap_Bo_De_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
+            this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
             dS.EnforceConstraints = false;
 
             this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
@@ -152,8 +154,56 @@ namespace TN_CSDLPT_HK3
                 txt_D.Focus();
                 return false;
             }
+            if(txt_A.Text == txt_B.Text)
+            {
+                MessageBox.Show("Đáp án không được trùng!");
+                return false;
+            }
+            if (txt_A.Text == txt_C.Text)
+            {
+                MessageBox.Show("Đáp án không được trùng!");
+                return false;
+            }
+            if (txt_A.Text == txt_D.Text)
+            {
+                MessageBox.Show("Đáp án không được trùng!");
+                return false;
+            }
+            if (txt_B.Text == txt_C.Text)
+            {
+                MessageBox.Show("Đáp án không được trùng!");
+                return false;
+            }
+            if (txt_B.Text == txt_D.Text)
+            {
+                MessageBox.Show("Đáp án không được trùng!");
+                return false;
+            }
+            if (txt_C.Text == txt_D.Text)
+            {
+                MessageBox.Show("Đáp án không được trùng!");
+                return false;
+            }
 
             return true;
+        }
+
+        private bool kiem_tra_cau_hoi()
+        {
+            int cauhoi = int.Parse(txtCauHoi.Text);
+
+            string str = "exec SP_KIEM_CAU_HOI N'" + cauhoi + "'";
+
+            Program.myReader = Program.ExecSqlDataReader(str);
+            Program.myReader.Read();
+
+            String kq = Program.myReader.GetString(0);
+            Program.myReader.Close();
+            if (kq == "1")
+            {
+                return true;
+            }
+            return false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -162,6 +212,13 @@ namespace TN_CSDLPT_HK3
             {
                 if (Program.control == "Them")
                 {
+                    if(kiem_tra_cau_hoi() == true)
+                    {
+                        MessageBox.Show("Câu hỏi không được trùng!");
+                        txtCauHoi.Focus();
+                        return;
+                    }    
+
                     if (kiemTraTruocKhiGhi())
                     {
                         bds_bode.EndEdit();

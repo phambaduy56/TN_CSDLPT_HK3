@@ -81,7 +81,9 @@
             this.txt_B = new DevExpress.XtraEditors.TextEdit();
             this.txt_A = new DevExpress.XtraEditors.TextEdit();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
-            this.txtMAMH = new DevExpress.XtraEditors.TextEdit();
+            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
+            this.bds_MonHoc = new System.Windows.Forms.BindingSource(this.components);
+            this.mONHOCTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.MONHOCTableAdapter();
             mAMHLabel = new System.Windows.Forms.Label();
             nOIDUNGLabel = new System.Windows.Forms.Label();
             aLabel = new System.Windows.Forms.Label();
@@ -105,13 +107,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_C.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_B.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_A.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(23, 102);
+            mAMHLabel.Location = new System.Drawing.Point(10, 105);
             mAMHLabel.Name = "mAMHLabel";
             mAMHLabel.Size = new System.Drawing.Size(53, 17);
             mAMHLabel.TabIndex = 2;
@@ -165,7 +167,7 @@
             // mAGVLabel
             // 
             mAGVLabel.AutoSize = true;
-            mAGVLabel.Location = new System.Drawing.Point(30, 211);
+            mAGVLabel.Location = new System.Drawing.Point(34, 211);
             mAGVLabel.Name = "mAGVLabel";
             mAGVLabel.Size = new System.Drawing.Size(52, 17);
             mAGVLabel.TabIndex = 18;
@@ -174,7 +176,7 @@
             // tRINHDOLabel
             // 
             tRINHDOLabel.AutoSize = true;
-            tRINHDOLabel.Location = new System.Drawing.Point(7, 163);
+            tRINHDOLabel.Location = new System.Drawing.Point(11, 163);
             tRINHDOLabel.Name = "tRINHDOLabel";
             tRINHDOLabel.Size = new System.Drawing.Size(75, 17);
             tRINHDOLabel.TabIndex = 20;
@@ -529,6 +531,7 @@
             // 
             // gb_BoDe
             // 
+            this.gb_BoDe.Controls.Add(this.cmbMonHoc);
             this.gb_BoDe.Controls.Add(cAUHOILabel);
             this.gb_BoDe.Controls.Add(this.txtCauHoi);
             this.gb_BoDe.Controls.Add(dAP_ANLabel);
@@ -548,7 +551,6 @@
             this.gb_BoDe.Controls.Add(nOIDUNGLabel);
             this.gb_BoDe.Controls.Add(this.txtNoiDung);
             this.gb_BoDe.Controls.Add(mAMHLabel);
-            this.gb_BoDe.Controls.Add(this.txtMAMH);
             this.gb_BoDe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_BoDe.Location = new System.Drawing.Point(0, 357);
             this.gb_BoDe.Name = "gb_BoDe";
@@ -590,7 +592,7 @@
             "A",
             "B",
             "C"});
-            this.txtTrinhDo.Location = new System.Drawing.Point(88, 160);
+            this.txtTrinhDo.Location = new System.Drawing.Point(92, 160);
             this.txtTrinhDo.Name = "txtTrinhDo";
             this.txtTrinhDo.Size = new System.Drawing.Size(121, 24);
             this.txtTrinhDo.TabIndex = 21;
@@ -598,7 +600,7 @@
             // txtMAGV
             // 
             this.txtMAGV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "MAGV", true));
-            this.txtMAGV.Location = new System.Drawing.Point(88, 208);
+            this.txtMAGV.Location = new System.Drawing.Point(92, 208);
             this.txtMAGV.MenuManager = this.barManager1;
             this.txtMAGV.Name = "txtMAGV";
             this.txtMAGV.Size = new System.Drawing.Size(125, 22);
@@ -649,14 +651,27 @@
             this.txtNoiDung.Size = new System.Drawing.Size(399, 187);
             this.txtNoiDung.TabIndex = 7;
             // 
-            // txtMAMH
+            // cmbMonHoc
             // 
-            this.txtMAMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "MAMH", true));
-            this.txtMAMH.Location = new System.Drawing.Point(88, 99);
-            this.txtMAMH.MenuManager = this.barManager1;
-            this.txtMAMH.Name = "txtMAMH";
-            this.txtMAMH.Size = new System.Drawing.Size(125, 22);
-            this.txtMAMH.TabIndex = 3;
+            this.cmbMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_bode, "MAMH", true));
+            this.cmbMonHoc.DataSource = this.bds_MonHoc;
+            this.cmbMonHoc.DisplayMember = "TENMH";
+            this.cmbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMonHoc.FormattingEnabled = true;
+            this.cmbMonHoc.Location = new System.Drawing.Point(69, 102);
+            this.cmbMonHoc.Name = "cmbMonHoc";
+            this.cmbMonHoc.Size = new System.Drawing.Size(237, 24);
+            this.cmbMonHoc.TabIndex = 24;
+            this.cmbMonHoc.ValueMember = "MAMH";
+            // 
+            // bds_MonHoc
+            // 
+            this.bds_MonHoc.DataMember = "MONHOC";
+            this.bds_MonHoc.DataSource = this.dS;
+            // 
+            // mONHOCTableAdapter
+            // 
+            this.mONHOCTableAdapter.ClearBeforeFill = true;
             // 
             // frmNhap_Bo_De
             // 
@@ -688,7 +703,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_C.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_B.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_A.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -717,7 +732,6 @@
         private DSTableAdapters.BODETableAdapter bODETableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.GroupBox gb_BoDe;
-        private DevExpress.XtraEditors.TextEdit txtMAMH;
         private DevExpress.XtraGrid.GridControl gc_bode;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colCAUHOI;
@@ -739,5 +753,8 @@
         private System.Windows.Forms.ComboBox txtTrinhDo;
         private System.Windows.Forms.ComboBox txt_DapAn;
         private DevExpress.XtraEditors.TextEdit txtCauHoi;
+        private System.Windows.Forms.ComboBox cmbMonHoc;
+        private System.Windows.Forms.BindingSource bds_MonHoc;
+        private DSTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
     }
 }

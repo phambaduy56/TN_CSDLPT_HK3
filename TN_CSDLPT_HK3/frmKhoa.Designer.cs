@@ -65,6 +65,8 @@
             this.txtMAKH = new DevExpress.XtraEditors.TextEdit();
             this.bds_Lop = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.LOPTableAdapter();
+            this.bds_giaovien = new System.Windows.Forms.BindingSource(this.components);
+            this.gIAOVIENTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.GIAOVIENTableAdapter();
             mAKHLabel = new System.Windows.Forms.Label();
             tENKHLabel = new System.Windows.Forms.Label();
             mACSLabel = new System.Windows.Forms.Label();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTENKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Lop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_giaovien)).BeginInit();
             this.SuspendLayout();
             // 
             // mAKHLabel
@@ -240,7 +243,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 579);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 571);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1279, 0);
             // 
@@ -250,7 +253,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 549);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 541);
             // 
             // barDockControlRight
             // 
@@ -258,7 +261,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1279, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 549);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 541);
             // 
             // panel1
             // 
@@ -348,6 +351,8 @@
             this.colMAKH.FieldName = "MAKH";
             this.colMAKH.MinWidth = 149;
             this.colMAKH.Name = "colMAKH";
+            this.colMAKH.OptionsColumn.AllowEdit = false;
+            this.colMAKH.OptionsColumn.ReadOnly = true;
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 0;
             this.colMAKH.Width = 555;
@@ -357,6 +362,8 @@
             this.colTENKH.FieldName = "TENKH";
             this.colTENKH.MinWidth = 149;
             this.colTENKH.Name = "colTENKH";
+            this.colTENKH.OptionsColumn.AllowEdit = false;
+            this.colTENKH.OptionsColumn.ReadOnly = true;
             this.colTENKH.Visible = true;
             this.colTENKH.VisibleIndex = 1;
             this.colTENKH.Width = 555;
@@ -366,6 +373,8 @@
             this.colMACS.FieldName = "MACS";
             this.colMACS.MinWidth = 149;
             this.colMACS.Name = "colMACS";
+            this.colMACS.OptionsColumn.AllowEdit = false;
+            this.colMACS.OptionsColumn.ReadOnly = true;
             this.colMACS.Visible = true;
             this.colMACS.VisibleIndex = 2;
             this.colMACS.Width = 555;
@@ -381,7 +390,7 @@
             this.gbKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbKhoa.Location = new System.Drawing.Point(0, 446);
             this.gbKhoa.Name = "gbKhoa";
-            this.gbKhoa.Size = new System.Drawing.Size(1279, 133);
+            this.gbKhoa.Size = new System.Drawing.Size(1279, 125);
             this.gbKhoa.TabIndex = 12;
             this.gbKhoa.TabStop = false;
             this.gbKhoa.Text = "Nhập thông tin khoa";
@@ -425,11 +434,20 @@
             // 
             this.lOPTableAdapter.ClearBeforeFill = true;
             // 
+            // bds_giaovien
+            // 
+            this.bds_giaovien.DataMember = "FK_GIAOVIEN_KHOA";
+            this.bds_giaovien.DataSource = this.bds_Khoa;
+            // 
+            // gIAOVIENTableAdapter
+            // 
+            this.gIAOVIENTableAdapter.ClearBeforeFill = true;
+            // 
             // frmKhoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 579);
+            this.ClientSize = new System.Drawing.Size(1279, 571);
             this.Controls.Add(this.gbKhoa);
             this.Controls.Add(this.gc_khoa);
             this.Controls.Add(this.panel1);
@@ -453,6 +471,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTENKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_Lop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_giaovien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +512,7 @@
         private DevExpress.XtraEditors.TextEdit txtMACS;
         private System.Windows.Forms.BindingSource bds_Lop;
         private DSTableAdapters.LOPTableAdapter lOPTableAdapter;
+        private System.Windows.Forms.BindingSource bds_giaovien;
+        private DSTableAdapters.GIAOVIENTableAdapter gIAOVIENTableAdapter;
     }
 }

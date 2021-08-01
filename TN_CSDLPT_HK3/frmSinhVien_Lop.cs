@@ -167,11 +167,7 @@ namespace TN_CSDLPT_HK3
                 txtMaSv.Focus();
                 return false;
             }
-            if (kiem_tra_ma_sv() == true)
-            {
-                MessageBox.Show("Mã sinh viên đã có vui lòng nhập mã khác!");
-                return false;
-            }
+          
             if(txtHo.Text == "")
             {
                 MessageBox.Show("Họ không được để trống!");
@@ -218,6 +214,8 @@ namespace TN_CSDLPT_HK3
             return true;
         }
 
+
+
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -226,6 +224,12 @@ namespace TN_CSDLPT_HK3
                 {
                     if (kiemTraTruocKhiGhi())
                     {
+                        if (kiem_tra_ma_sv() == true)
+                        {
+                            MessageBox.Show("Mã sinh viên đã có vui lòng nhập mã khác!");
+                            return;
+                        }
+
                         bds_SinhVien.EndEdit();
                         bds_SinhVien.ResetCurrentItem();
                         this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -241,6 +245,8 @@ namespace TN_CSDLPT_HK3
                 {
                     if (kiemTraTruocKhiGhi())
                     {
+                        
+
                         bds_SinhVien.EndEdit();
                         bds_SinhVien.ResetCurrentItem();
                         this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;

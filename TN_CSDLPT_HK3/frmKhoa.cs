@@ -30,8 +30,9 @@ namespace TN_CSDLPT_HK3
 
         private void frmKhoa_Load(object sender, EventArgs e)
         {
-            
-         
+
+
+
             dS.EnforceConstraints = false;
 
             this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
@@ -39,6 +40,9 @@ namespace TN_CSDLPT_HK3
 
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.dS.LOP);
+
+            this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
 
             this.bds = Program.bds_dspm;
             if (bds.Count == 3)
@@ -102,6 +106,10 @@ namespace TN_CSDLPT_HK3
 
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.dS.LOP);
+
+                this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
+
                 maCOSO = ((DataRowView)bds_Khoa[0])["MACS"].ToString();
 
             }
@@ -122,6 +130,9 @@ namespace TN_CSDLPT_HK3
             Program.control = "Sua";
             vitri = bds_Khoa.Position;
             Hien_thi_khi_them();
+            txtMACS.Enabled = false;
+            txtMAKH.Enabled = false;
+
         }
 
         private bool kiem_tra_ma_khoa()
@@ -142,12 +153,7 @@ namespace TN_CSDLPT_HK3
 
         private bool kiemTraTruocKhiGhi()
         {
-            if(kiem_tra_ma_khoa() == true)
-            {
-                MessageBox.Show("Mã khoa không được trùng!");
-                txtMAKH.Focus();
-                return false;
-            }
+            
            
             if (txtMAKH.Text == "")
             {
@@ -184,9 +190,15 @@ namespace TN_CSDLPT_HK3
             {
                 if (Program.control == "Them")
                 {
-                    if (kiemTraTruocKhiGhi())
+
+                    if (kiem_tra_ma_khoa() == true)
                     {
-                        bds_Khoa.EndEdit();
+                        MessageBox.Show("Mã khoa không được trùng!");
+                        txtMAKH.Focus();
+                        return;
+                    }
+
+                    bds_Khoa.EndEdit();
                         bds_Khoa.ResetCurrentItem();
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
                         this.kHOATableAdapter.Update(this.dS.KHOA);
@@ -194,7 +206,6 @@ namespace TN_CSDLPT_HK3
 
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
                          Btn_ban_dau();
-                    }
                 }
                 if (Program.control == "Sua")
                 {
@@ -207,6 +218,8 @@ namespace TN_CSDLPT_HK3
 
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
+                        txtMACS.Enabled = true;
+                        txtMAKH.Enabled = true;
                     }
                 }
             }
@@ -227,7 +240,13 @@ namespace TN_CSDLPT_HK3
                         return;
                     }
 
-                    try
+                    if (bds_giaovien.Count > 0)
+                    {
+                        MessageBox.Show("Khoa đang có giáo viên không thể xóa!", "", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                try
                     {
                         bds_Khoa.RemoveCurrent();
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;

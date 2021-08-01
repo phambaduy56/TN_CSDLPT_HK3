@@ -66,5 +66,13 @@ namespace TN_CSDLPT_HK3
             ReportPrintTool print = new ReportPrintTool(rp);
             print.ShowPreviewDialog();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn thật sự muốn thoát khỏi form?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
     }
 }

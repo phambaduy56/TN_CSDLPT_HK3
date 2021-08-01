@@ -99,6 +99,12 @@
     <Compile Include="frmDang_Nhap.Designer.cs">
       <DependentUpon>frmDang_Nhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDanhSachDangKyThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDanhSachDangKyThi.Designer.cs">
+      <DependentUpon>frmDanhSachDangKyThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGiangVien_Khoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
     <Compile Include="inBangDiem.Designer.cs">
       <DependentUpon>inBangDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="InDanhSachDangKyThi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InDanhSachDangKyThi.Designer.cs">
+      <DependentUpon>InDanhSachDangKyThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="InKetQuaThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +214,9 @@
     <EmbeddedResource Include="frmDang_Nhap.resx">
       <DependentUpon>frmDang_Nhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDanhSachDangKyThi.resx">
+      <DependentUpon>frmDanhSachDangKyThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGiangVien_Khoa.resx">
       <DependentUpon>frmGiangVien_Khoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="inBangDiem.resx">
       <DependentUpon>inBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InDanhSachDangKyThi.resx">
+      <DependentUpon>InDanhSachDangKyThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InKetQuaThi.resx">
       <DependentUpon>InKetQuaThi.cs</DependentUpon>

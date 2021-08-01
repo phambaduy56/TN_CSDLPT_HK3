@@ -47,6 +47,7 @@ namespace TN_CSDLPT_HK3
                 NHOM.Text = "Lớp: " + Program.mGroup;
                 btn_ban_dau();
                 btnThi.Enabled = true;
+                btnInBaiThi.Enabled = true;
             }
  
         }
@@ -58,6 +59,7 @@ namespace TN_CSDLPT_HK3
                 btnThi.Enabled = false;
             btnInBangDiem.Enabled = false;
             btnInBaiThi.Enabled = false;
+            btnInDanhSachThi.Enabled = false;
         }
 
         private Form CheckExists(Type ftype)
@@ -186,6 +188,23 @@ namespace TN_CSDLPT_HK3
                 f.MdiParent = this;
                 f.Show();
             }
+        }
+
+        private void barButtonItem1_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDanhSachDangKyThi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDanhSachDangKyThi f = new frmDanhSachDangKyThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem1_ItemClick_3(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

@@ -144,12 +144,7 @@ namespace TN_CSDLPT_HK3
                 txtTENMH.Focus();
                 return false;
             }
-            if(kiem_tra_mon_hoc())
-            {
-                MessageBox.Show("Tên môn học và mã môn không được trùng");
-                txtTENMH.Focus();
-                return false;
-            }
+           
 
             
             return true;
@@ -163,6 +158,12 @@ namespace TN_CSDLPT_HK3
                 {
                     if (kiemTraTruocKhiGhi())
                     {
+                        if (kiem_tra_mon_hoc())
+                        {
+                            MessageBox.Show("Tên môn học và mã môn không được trùng");
+                            txtTENMH.Focus();
+                            return ;
+                        }
                         bds_MonHoc.EndEdit();
                         bds_MonHoc.ResetCurrentItem();
                         this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;

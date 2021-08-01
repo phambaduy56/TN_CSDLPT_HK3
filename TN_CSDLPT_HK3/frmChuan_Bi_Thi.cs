@@ -162,8 +162,7 @@ namespace TN_CSDLPT_HK3
                 }
                 if (Program.control == "Sua")
                 {
-                    if (kiemTraTruocKhiGhi())
-                    {
+                   
                         bds_GVDK.EndEdit();
                         bds_GVDK.ResetCurrentItem();
                         this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -171,7 +170,6 @@ namespace TN_CSDLPT_HK3
 
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
-                    }
                 }
             }
             catch (Exception ex)

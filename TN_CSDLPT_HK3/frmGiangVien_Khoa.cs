@@ -120,6 +120,7 @@ namespace TN_CSDLPT_HK3
             Program.control = "Sua";
             vitri = bds_GiaoVien.Position;
             Hien_thi_khi_them();
+            txtMAGV.Enabled = false;
         }
 
         private bool kiemTraTruocKhiGhi()
@@ -129,6 +130,48 @@ namespace TN_CSDLPT_HK3
             {
                 MessageBox.Show("Mã giáo viên không được để rỗng!");
                 txtMAGV.Focus();
+                return false;
+            }
+            if(txtMAGV.Text.Length > 8)
+            {
+                MessageBox.Show("Mã giáo viên không được > 8");
+                txtMAGV.Focus();
+                return false;
+            }
+            if (txtHO.Text == "")
+            {
+                MessageBox.Show("Ho viên không được để rỗng!");
+                txtHO.Focus();
+                return false;
+            }
+            if (txtHO.Text.Length > 40)
+            {
+                MessageBox.Show("Mã giáo viên không được > 40!");
+                txtHO.Focus();
+                return false;
+            }
+            if (txtTEN.Text == "")
+            {
+                MessageBox.Show("Ten viên không được để rỗng!");
+                txtTEN.Focus();
+                return false;
+            }
+            if (txtTEN.Text.Length > 40)
+            {
+                MessageBox.Show("Ten giáo viên không được > 40!");
+                txtTEN.Focus();
+                return false;
+            }
+            if (txtDiaChi.Text == "")
+            {
+                MessageBox.Show("Địa chỉ viên không được để rỗng!");
+                txtTEN.Focus();
+                return false;
+            }
+            if (txtDiaChi.Text.Length > 50)
+            {
+                MessageBox.Show("Địa chỉ viên không được > 50!");
+                txtTEN.Focus();
                 return false;
             }
 
@@ -156,8 +199,7 @@ namespace TN_CSDLPT_HK3
                 }
                 if (Program.control == "Sua")
                 {
-                    if (kiemTraTruocKhiGhi())
-                    {
+                   
                         bds_GiaoVien.EndEdit();
                         bds_GiaoVien.ResetCurrentItem();
                         this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -165,7 +207,7 @@ namespace TN_CSDLPT_HK3
 
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
-                    }
+                        txtMAGV.Enabled = true;
                 }
             }
             catch (Exception ex)
