@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace TN_CSDLPT_HK3
     public partial class frmKhoa : Form
     {
         private BindingSource bds = new BindingSource();
+        Stack undolist = new Stack();
+
         private int vitri = 0;
         String maCOSO = "";
         public frmKhoa()
@@ -129,6 +132,12 @@ namespace TN_CSDLPT_HK3
         {
             Program.control = "Sua";
             vitri = bds_Khoa.Position;
+
+            //value
+            undolist.Push(txtMAKH.Text + "#" + txtTENKH.Text + "#" + txtMACS.Text);
+            //key
+            undolist.Push("EDIT");
+
             Hien_thi_khi_them();
             txtMACS.Enabled = false;
             txtMAKH.Enabled = false;
@@ -198,14 +207,16 @@ namespace TN_CSDLPT_HK3
                         return;
                     }
 
-                    bds_Khoa.EndEdit();
+                        bds_Khoa.EndEdit();
                         bds_Khoa.ResetCurrentItem();
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
                         this.kHOATableAdapter.Update(this.dS.KHOA);
-                        bds_Khoa.MoveFirst();
-
+                        undolist.Push(txtMAKH.Text);
+                        undolist.Push("INSERT");
+                        bds_Khoa.Position = vitri;
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
-                         Btn_ban_dau();
+                        Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
                 }
                 if (Program.control == "Sua")
                 {
@@ -215,11 +226,12 @@ namespace TN_CSDLPT_HK3
                         bds_Khoa.ResetCurrentItem();
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
                         this.kHOATableAdapter.Update(this.dS.KHOA);
-
+                        bds_Khoa.Position = vitri;
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
                         txtMACS.Enabled = true;
                         txtMAKH.Enabled = true;
+                        btnPhucHoi.Enabled = true;
                     }
                 }
             }
@@ -248,12 +260,17 @@ namespace TN_CSDLPT_HK3
 
                 try
                     {
+                        undolist.Push(txtMAKH.Text + "#" + txtTENKH.Text + "#" + txtMACS.Text); 
+                        undolist.Push("DELETE");
                         bds_Khoa.RemoveCurrent();
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
                         this.kHOATableAdapter.Update(this.dS.KHOA);
-                    }
+                        btnPhucHoi.Enabled = true;
+                }
                     catch (Exception ex)
                     {
+                        undolist.Pop();
+                        undolist.Pop();
                         MessageBox.Show("Lỗi xóa Lớp\n" + ex.Message, "", MessageBoxButtons.OK);
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
                         this.kHOATableAdapter.Fill(this.dS.KHOA);
@@ -265,6 +282,8 @@ namespace TN_CSDLPT_HK3
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bds_Khoa.CancelEdit();
+            undolist.Pop();
+            undolist.Pop();
             this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
             this.kHOATableAdapter.Fill(this.dS.KHOA);
             if (Program.mGroup == "PGV")
@@ -304,5 +323,64 @@ namespace TN_CSDLPT_HK3
             gc_khoa.Enabled = false;
         }
 
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (undolist.Count > 0)
+            {
+                //lay cai key 
+                //kiem tra xem no thuoc cai nao
+                String statement = undolist.Pop().ToString();
+                if (statement.Equals("DELETE"))
+                {
+
+                    this.bds_Khoa.AddNew();
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    txtMAKH.Text = TT_Kho[0];
+                    txtTENKH.Text = TT_Kho[1];
+                    txtMACS.Text = TT_Kho[2];
+                    this.bds_Lop.EndEdit();
+                    this.kHOATableAdapter.Update(this.dS.KHOA);
+                }
+                else if (statement.Equals("INSERT"))
+                {
+                    String MAKH = undolist.Pop().ToString();
+                    int vitrixoa = bds_Khoa.Find("MAKH", MAKH);
+                    bds_Khoa.Position = vitrixoa;
+                    bds_Khoa.RemoveCurrent();
+
+                    
+                    this.kHOATableAdapter.Update(this.dS.KHOA);
+                }
+                else if (statement.Equals("EDIT"))
+                {
+
+
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    bds_Khoa.Position = bds_Khoa.Find("MAKH", TT_Kho[0]);
+
+                    txtTENKH.Text = TT_Kho[1];
+                    txtMACS.Text = TT_Kho[2];
+
+                    this.bds_Khoa.EndEdit();
+                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.lOPTableAdapter.Update(this.dS.LOP);
+                }
+            }
+            if (undolist.Count == 0) btnPhucHoi.Enabled = false;
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
+            this.kHOATableAdapter.Fill(this.dS.KHOA);
+
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.lOPTableAdapter.Fill(this.dS.LOP);
+
+            this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
+        }
     }
 }

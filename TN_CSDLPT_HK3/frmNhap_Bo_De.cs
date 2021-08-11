@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace TN_CSDLPT_HK3
     {
         private BindingSource bds = new BindingSource();
         private int vitri = 0;
+        Stack undolist = new Stack();
 
         private String cauhoi = "";
         private String maGV = "";
@@ -65,6 +67,7 @@ namespace TN_CSDLPT_HK3
                 cmbCoSo.Enabled = false;
                 Btn_ban_dau();
             }
+            bds_bode.Position = vitri;
 
         }
 
@@ -106,20 +109,36 @@ namespace TN_CSDLPT_HK3
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Them";
-            vitri = bds_bode.Position;
             bds_bode.AddNew();
-
+            vitri = bds_bode.Position;
             txtMAGV.Text = Program.username.ToString();
             txtMAGV.Enabled = false;
 
             Hien_thi_khi_them();
+            txtCauHoi.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Sua";
             vitri = bds_bode.Position;
+
+            undolist.Push(txtCauHoi.Text + "#" + 
+                cmbMonHoc.SelectedIndex + "#" + 
+                cmbTrinhDo.SelectedIndex + "#" +
+                txtMAGV.Text + "#" +
+                txtNoiDung.Text + "#" +
+                txt_A.Text + "#" +
+                txt_B.Text + "#" +
+                txt_C.Text + "#" +
+                txt_D.Text + "#" +
+                txt_DapAn.SelectedIndex
+           );
+            undolist.Push("EDIT");
             Hien_thi_khi_them();
+            txtCauHoi.Enabled = false;
+            txtMAGV.Enabled = false;
+            
         }
 
         private bool kiemTraTruocKhiGhi()
@@ -212,12 +231,11 @@ namespace TN_CSDLPT_HK3
             {
                 if (Program.control == "Them")
                 {
-                    if(kiem_tra_cau_hoi() == true)
+                    if (kiem_tra_cau_hoi() == true)
                     {
                         MessageBox.Show("Câu hỏi không được trùng!");
-                        txtCauHoi.Focus();
                         return;
-                    }    
+                    }
 
                     if (kiemTraTruocKhiGhi())
                     {
@@ -225,10 +243,12 @@ namespace TN_CSDLPT_HK3
                         bds_bode.ResetCurrentItem();
                         this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
                         this.bODETableAdapter.Update(this.dS.BODE);
-                        bds_bode.MoveLast();
-
+                        undolist.Push(txtCauHoi.Text);
+                        undolist.Push("INSERT");
+                        bds_bode.Position = vitri;
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
                     }
                 }
                 if (Program.control == "Sua")
@@ -239,9 +259,11 @@ namespace TN_CSDLPT_HK3
                         bds_bode.ResetCurrentItem();
                         this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
                         this.bODETableAdapter.Update(this.dS.BODE);
+                        bds_bode.Position = vitri;
 
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
                     }
                 }
             }
@@ -255,16 +277,24 @@ namespace TN_CSDLPT_HK3
         {
             if (MessageBox.Show("Bạn có muốn xóa câu hỏi "  + " ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (Program.username != maGV)
-                {
-                    MessageBox.Show("Bạn không có quyền xóa câu hỏi" , "", MessageBoxButtons.OK);
-                    return;
-                }
+
                 try
                 {
+                    undolist.Push(txtCauHoi.Text + "#" +
+                    cmbMonHoc.SelectedIndex.ToString() + "#" +
+                    cmbTrinhDo.SelectedIndex.ToString() + "#" +
+                    txtMAGV.Text + "#" +
+                    txtNoiDung.Text + "#" +
+                    txt_A.Text + "#" +
+                    txt_B.Text + "#" +
+                    txt_C.Text + "#" +
+                    txt_D.Text + "#" +
+                    txt_DapAn.SelectedIndex);
+                    undolist.Push("DELETE");
                     bds_bode.RemoveCurrent();
                     this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
                     this.bODETableAdapter.Update(this.dS.BODE);
+                    btnPhucHoi.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -279,6 +309,11 @@ namespace TN_CSDLPT_HK3
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (undolist.Count > 0)
+            {
+                undolist.Pop();
+                undolist.Pop();
+            }
             bds_bode.CancelEdit();
             this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
             this.bODETableAdapter.Fill(this.dS.BODE);
@@ -297,15 +332,16 @@ namespace TN_CSDLPT_HK3
 
         private void Btn_ban_dau()
         {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThoat.Enabled = btnPhucHoi.Enabled = true;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
             gb_BoDe.Enabled = false;
             gc_bode.Enabled = true;
+            btnPhucHoi.Enabled = false;
         }
 
         private void Hien_thi_khi_them()
         {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
             gb_BoDe.Enabled = true;
             gc_bode.Enabled = false;
@@ -317,6 +353,70 @@ namespace TN_CSDLPT_HK3
             {
                 this.Close();
             }
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (undolist.Count > 0)
+            {
+                String statement = undolist.Pop().ToString();
+                if (statement.Equals("DELETE"))
+                {
+
+                    this.bds_bode.AddNew();
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    txtCauHoi.Text = TT_Kho[0];
+                    cmbMonHoc.SelectedIndex = Int16.Parse(TT_Kho[1]);
+                    cmbTrinhDo.SelectedIndex = Int16.Parse(TT_Kho[2]);
+                    txtMAGV.Text = TT_Kho[3];
+                    txtNoiDung.Text = TT_Kho[4];
+                    txt_A.Text = TT_Kho[5];
+                    txt_B.Text = TT_Kho[6];
+                    txt_C.Text = TT_Kho[7];
+                    txt_D.Text = TT_Kho[8];
+                    txt_DapAn.SelectedIndex = Int16.Parse(TT_Kho[9]);
+                    this.bds_bode.EndEdit();
+                    this.bODETableAdapter.Update(this.dS.BODE);
+                }
+                else if (statement.Equals("INSERT"))
+                {
+                    String CAUHOI = undolist.Pop().ToString();
+
+                    int vitrixoa = bds_bode.Find("CAUHOI", CAUHOI);
+                    bds_bode.Position = vitrixoa;
+                    bds_bode.RemoveCurrent();
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.bODETableAdapter.Update(this.dS.BODE);
+                }
+                else if (statement.Equals("EDIT"))
+                {
+
+
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    bds_bode.Position = bds_bode.Find("CAUHOI", TT_Kho[0]);
+                    cmbMonHoc.SelectedIndex = Int16.Parse(TT_Kho[1]);
+                    cmbTrinhDo.SelectedIndex = Int16.Parse(TT_Kho[2]);
+                    txtMAGV.Text = TT_Kho[3];
+                    txtNoiDung.Text = TT_Kho[4];
+                    txt_A.Text = TT_Kho[5];
+                    txt_B.Text = TT_Kho[6];
+                    txt_C.Text = TT_Kho[7];
+                    txt_D.Text = TT_Kho[8];
+                    txt_DapAn.SelectedIndex = Int16.Parse(TT_Kho[9]);
+                    this.bds_bode.EndEdit();
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.bODETableAdapter.Update(this.dS.BODE);
+                }
+            }
+            if (undolist.Count == 0) btnPhucHoi.Enabled = false;
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+            this.bODETableAdapter.Fill(this.dS.BODE);
         }
     }
 }

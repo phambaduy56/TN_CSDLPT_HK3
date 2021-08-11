@@ -44,7 +44,6 @@ C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\bin\Debug\de\DevExpress.P
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
-C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.csprojAssemblyReference.cache
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.Form1.resources
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.frmDang_Nhap.resources
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.Properties.Resources.resources
@@ -214,3 +213,5 @@ C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.f
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.inBangDiem.resources
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.frmDanhSachDangKyThi.resources
 C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.InDanhSachDangKyThi.resources
+C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\TN_CSDLPT_HK3\TN_CSDLPT_HK3\obj\Debug\TN_CSDLPT_HK3.frmDangKy.resources

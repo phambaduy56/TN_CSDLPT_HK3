@@ -109,74 +109,82 @@
             // mAGVLabel
             // 
             mAGVLabel.AutoSize = true;
-            mAGVLabel.Location = new System.Drawing.Point(76, 46);
+            mAGVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAGVLabel.Location = new System.Drawing.Point(39, 41);
             mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(52, 17);
+            mAGVLabel.Size = new System.Drawing.Size(82, 23);
             mAGVLabel.TabIndex = 0;
-            mAGVLabel.Text = "MAGV:";
+            mAGVLabel.Text = "MÃ GV:";
             // 
             // tRINHDOLabel
             // 
             tRINHDOLabel.AutoSize = true;
-            tRINHDOLabel.Location = new System.Drawing.Point(431, 46);
+            tRINHDOLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tRINHDOLabel.Location = new System.Drawing.Point(461, 43);
             tRINHDOLabel.Name = "tRINHDOLabel";
-            tRINHDOLabel.Size = new System.Drawing.Size(75, 17);
+            tRINHDOLabel.Size = new System.Drawing.Size(116, 23);
             tRINHDOLabel.TabIndex = 8;
-            tRINHDOLabel.Text = "TRINHDO:";
+            tRINHDOLabel.Text = "TRÌNH ĐỘ:";
             // 
             // nGAYTHILabel
             // 
             nGAYTHILabel.AutoSize = true;
-            nGAYTHILabel.Location = new System.Drawing.Point(433, 112);
+            nGAYTHILabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nGAYTHILabel.Location = new System.Drawing.Point(460, 110);
             nGAYTHILabel.Name = "nGAYTHILabel";
-            nGAYTHILabel.Size = new System.Drawing.Size(73, 17);
+            nGAYTHILabel.Size = new System.Drawing.Size(118, 23);
             nGAYTHILabel.TabIndex = 10;
-            nGAYTHILabel.Text = "NGAYTHI:";
+            nGAYTHILabel.Text = "NGÀY THI: ";
             // 
             // lANLabel
             // 
             lANLabel.AutoSize = true;
-            lANLabel.Location = new System.Drawing.Point(463, 175);
+            lANLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lANLabel.Location = new System.Drawing.Point(513, 173);
             lANLabel.Name = "lANLabel";
-            lANLabel.Size = new System.Drawing.Size(39, 17);
+            lANLabel.Size = new System.Drawing.Size(58, 23);
             lANLabel.TabIndex = 12;
-            lANLabel.Text = "LAN:";
+            lANLabel.Text = "LẦN:";
             // 
             // sOCAUTHILabel
             // 
             sOCAUTHILabel.AutoSize = true;
-            sOCAUTHILabel.Location = new System.Drawing.Point(738, 42);
+            sOCAUTHILabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sOCAUTHILabel.Location = new System.Drawing.Point(821, 30);
             sOCAUTHILabel.Name = "sOCAUTHILabel";
-            sOCAUTHILabel.Size = new System.Drawing.Size(82, 17);
+            sOCAUTHILabel.Size = new System.Drawing.Size(136, 23);
             sOCAUTHILabel.TabIndex = 14;
-            sOCAUTHILabel.Text = "SOCAUTHI:";
+            sOCAUTHILabel.Text = "SỐ CÂU THI: ";
             // 
             // tHOIGIANLabel
             // 
             tHOIGIANLabel.AutoSize = true;
-            tHOIGIANLabel.Location = new System.Drawing.Point(742, 111);
+            tHOIGIANLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tHOIGIANLabel.Location = new System.Drawing.Point(828, 103);
             tHOIGIANLabel.Name = "tHOIGIANLabel";
-            tHOIGIANLabel.Size = new System.Drawing.Size(78, 17);
+            tHOIGIANLabel.Size = new System.Drawing.Size(129, 23);
             tHOIGIANLabel.TabIndex = 16;
-            tHOIGIANLabel.Text = "THOIGIAN:";
+            tHOIGIANLabel.Text = "THỜI GIAN: ";
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(75, 108);
+            mAMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAMHLabel.Location = new System.Drawing.Point(6, 110);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(53, 17);
+            mAMHLabel.Size = new System.Drawing.Size(115, 23);
             mAMHLabel.TabIndex = 19;
-            mAMHLabel.Text = "MAMH:";
+            mAMHLabel.Text = "MÔN HỌC:";
             // 
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(74, 179);
+            mALOPLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mALOPLabel.Location = new System.Drawing.Point(21, 179);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(60, 17);
+            mALOPLabel.Size = new System.Drawing.Size(100, 23);
             mALOPLabel.TabIndex = 20;
-            mALOPLabel.Text = "MALOP:";
+            mALOPLabel.Text = "MÃ LỚP: ";
             // 
             // barManager1
             // 
@@ -317,16 +325,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1305, 76);
+            this.panel1.Size = new System.Drawing.Size(1305, 64);
             this.panel1.TabIndex = 7;
             // 
             // cmbCoSo
             // 
             this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCoSo.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(204, 25);
+            this.cmbCoSo.Location = new System.Drawing.Point(221, 18);
             this.cmbCoSo.Name = "cmbCoSo";
-            this.cmbCoSo.Size = new System.Drawing.Size(403, 24);
+            this.cmbCoSo.Size = new System.Drawing.Size(345, 33);
             this.cmbCoSo.TabIndex = 1;
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
@@ -335,10 +344,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(131, 28);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(121, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.Size = new System.Drawing.Size(84, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "CƠ SỞ: ";
             this.label1.Visible = false;
@@ -376,7 +385,7 @@
             // 
             this.gc_giaoviendk.DataSource = this.bds_GVDK;
             this.gc_giaoviendk.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gc_giaoviendk.Location = new System.Drawing.Point(0, 106);
+            this.gc_giaoviendk.Location = new System.Drawing.Point(0, 94);
             this.gc_giaoviendk.MainView = this.gridView1;
             this.gc_giaoviendk.MenuManager = this.barManager1;
             this.gc_giaoviendk.Name = "gc_giaoviendk";
@@ -507,24 +516,24 @@
             this.gb_DangKy.Controls.Add(mAGVLabel);
             this.gb_DangKy.Controls.Add(this.txt_MAGV);
             this.gb_DangKy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_DangKy.Location = new System.Drawing.Point(0, 326);
+            this.gb_DangKy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gb_DangKy.Location = new System.Drawing.Point(0, 314);
             this.gb_DangKy.Name = "gb_DangKy";
-            this.gb_DangKy.Size = new System.Drawing.Size(1305, 288);
+            this.gb_DangKy.Size = new System.Drawing.Size(1305, 300);
             this.gb_DangKy.TabIndex = 9;
             this.gb_DangKy.TabStop = false;
             this.gb_DangKy.Text = "groupBox1";
             // 
             // mALOPComboBox
             // 
-            this.mALOPComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_GVDK, "MALOP", true));
             this.mALOPComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_GVDK, "MALOP", true));
             this.mALOPComboBox.DataSource = this.bds_LOP;
             this.mALOPComboBox.DisplayMember = "TENLOP";
             this.mALOPComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mALOPComboBox.FormattingEnabled = true;
-            this.mALOPComboBox.Location = new System.Drawing.Point(134, 176);
+            this.mALOPComboBox.Location = new System.Drawing.Point(139, 176);
             this.mALOPComboBox.Name = "mALOPComboBox";
-            this.mALOPComboBox.Size = new System.Drawing.Size(249, 24);
+            this.mALOPComboBox.Size = new System.Drawing.Size(249, 31);
             this.mALOPComboBox.TabIndex = 21;
             this.mALOPComboBox.ValueMember = "MALOP";
             // 
@@ -540,9 +549,9 @@
             this.mAMHComboBox.DisplayMember = "TENMH";
             this.mAMHComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mAMHComboBox.FormattingEnabled = true;
-            this.mAMHComboBox.Location = new System.Drawing.Point(134, 105);
+            this.mAMHComboBox.Location = new System.Drawing.Point(139, 107);
             this.mAMHComboBox.Name = "mAMHComboBox";
-            this.mAMHComboBox.Size = new System.Drawing.Size(249, 24);
+            this.mAMHComboBox.Size = new System.Drawing.Size(249, 31);
             this.mAMHComboBox.TabIndex = 20;
             this.mAMHComboBox.ValueMember = "MAMH";
             // 
@@ -554,11 +563,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(957, 115);
+            this.label2.Location = new System.Drawing.Point(1124, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
+            this.label2.Size = new System.Drawing.Size(64, 23);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Phút";
+            this.label2.Text = "PHÚT";
             // 
             // tHOIGIANSpinEdit
             // 
@@ -568,7 +577,7 @@
             0,
             0,
             0});
-            this.tHOIGIANSpinEdit.Location = new System.Drawing.Point(826, 108);
+            this.tHOIGIANSpinEdit.Location = new System.Drawing.Point(981, 103);
             this.tHOIGIANSpinEdit.MenuManager = this.barManager1;
             this.tHOIGIANSpinEdit.Name = "tHOIGIANSpinEdit";
             this.tHOIGIANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -584,7 +593,7 @@
             0,
             0,
             0});
-            this.sOCAUTHISpinEdit.Location = new System.Drawing.Point(826, 39);
+            this.sOCAUTHISpinEdit.Location = new System.Drawing.Point(981, 29);
             this.sOCAUTHISpinEdit.MenuManager = this.barManager1;
             this.sOCAUTHISpinEdit.Name = "sOCAUTHISpinEdit";
             this.sOCAUTHISpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -600,7 +609,7 @@
             0,
             0,
             0});
-            this.lANSpinEdit.Location = new System.Drawing.Point(508, 172);
+            this.lANSpinEdit.Location = new System.Drawing.Point(601, 169);
             this.lANSpinEdit.MenuManager = this.barManager1;
             this.lANSpinEdit.Name = "lANSpinEdit";
             this.lANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -612,7 +621,7 @@
             // 
             this.nGAYTHIDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "NGAYTHI", true));
             this.nGAYTHIDateEdit.EditValue = null;
-            this.nGAYTHIDateEdit.Location = new System.Drawing.Point(512, 109);
+            this.nGAYTHIDateEdit.Location = new System.Drawing.Point(605, 105);
             this.nGAYTHIDateEdit.MenuManager = this.barManager1;
             this.nGAYTHIDateEdit.Name = "nGAYTHIDateEdit";
             this.nGAYTHIDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -631,16 +640,16 @@
             "A",
             "B",
             "C"});
-            this.tRINHDOComboBox.Location = new System.Drawing.Point(512, 43);
+            this.tRINHDOComboBox.Location = new System.Drawing.Point(605, 39);
             this.tRINHDOComboBox.Name = "tRINHDOComboBox";
-            this.tRINHDOComboBox.Size = new System.Drawing.Size(121, 24);
+            this.tRINHDOComboBox.Size = new System.Drawing.Size(121, 31);
             this.tRINHDOComboBox.TabIndex = 9;
             // 
             // txt_MAGV
             // 
             this.txt_MAGV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "MAGV", true));
             this.txt_MAGV.Enabled = false;
-            this.txt_MAGV.Location = new System.Drawing.Point(134, 43);
+            this.txt_MAGV.Location = new System.Drawing.Point(139, 43);
             this.txt_MAGV.MenuManager = this.barManager1;
             this.txt_MAGV.Name = "txt_MAGV";
             this.txt_MAGV.Size = new System.Drawing.Size(249, 22);

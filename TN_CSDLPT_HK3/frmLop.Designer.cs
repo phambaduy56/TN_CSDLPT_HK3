@@ -41,6 +41,7 @@
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -87,29 +88,32 @@
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(20, 50);
+            mALOPLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mALOPLabel.Location = new System.Drawing.Point(10, 49);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(60, 17);
+            mALOPLabel.Size = new System.Drawing.Size(100, 23);
             mALOPLabel.TabIndex = 0;
-            mALOPLabel.Text = "MALOP:";
+            mALOPLabel.Text = "MÃ LỚP: ";
             // 
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(389, 50);
+            tENLOPLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tENLOPLabel.Location = new System.Drawing.Point(426, 50);
             tENLOPLabel.Name = "tENLOPLabel";
-            tENLOPLabel.Size = new System.Drawing.Size(68, 17);
+            tENLOPLabel.Size = new System.Drawing.Size(108, 23);
             tENLOPLabel.TabIndex = 2;
-            tENLOPLabel.Text = "TENLOP:";
+            tENLOPLabel.Text = "TÊN LỚP: ";
             // 
             // mAKHLabel
             // 
             mAKHLabel.AutoSize = true;
-            mAKHLabel.Location = new System.Drawing.Point(780, 50);
+            mAKHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAKHLabel.Location = new System.Drawing.Point(857, 50);
             mAKHLabel.Name = "mAKHLabel";
-            mAKHLabel.Size = new System.Drawing.Size(51, 17);
+            mAKHLabel.Size = new System.Drawing.Size(118, 23);
             mAKHLabel.TabIndex = 4;
-            mAKHLabel.Text = "MAKH:";
+            mAKHLabel.Text = "MÃ KHOA: ";
             // 
             // barManager1
             // 
@@ -127,9 +131,10 @@
             this.btnXoa,
             this.btnPhucHoi,
             this.btnHuy,
-            this.btnThoat});
+            this.btnThoat,
+            this.barButtonItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 7;
+            this.barManager1.MaxItemId = 8;
             // 
             // bar2
             // 
@@ -144,7 +149,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -193,6 +199,7 @@
             this.btnPhucHoi.ImageOptions.Image = global::TN_CSDLPT_HK3.Properties.Resources.reset2_16x162;
             this.btnPhucHoi.ImageOptions.LargeImage = global::TN_CSDLPT_HK3.Properties.Resources.reset2_32x322;
             this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
             // 
             // btnHuy
             // 
@@ -211,6 +218,15 @@
             this.btnThoat.ImageOptions.LargeImage = global::TN_CSDLPT_HK3.Properties.Resources.close_32x321;
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "RELOAD";
+            this.barButtonItem1.Id = 7;
+            this.barButtonItem1.ImageOptions.Image = global::TN_CSDLPT_HK3.Properties.Resources.refresh_16x163;
+            this.barButtonItem1.ImageOptions.LargeImage = global::TN_CSDLPT_HK3.Properties.Resources.refresh_32x323;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -257,19 +273,21 @@
             // cmbCoSo
             // 
             this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCoSo.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(204, 25);
+            this.cmbCoSo.Location = new System.Drawing.Point(228, 23);
             this.cmbCoSo.Name = "cmbCoSo";
-            this.cmbCoSo.Size = new System.Drawing.Size(403, 24);
+            this.cmbCoSo.Size = new System.Drawing.Size(403, 33);
             this.cmbCoSo.TabIndex = 1;
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(138, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(84, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "CƠ SỞ: ";
             // 
@@ -314,7 +332,7 @@
             this.gc_Lop.MainView = this.gridView1;
             this.gc_Lop.MenuManager = this.barManager1;
             this.gc_Lop.Name = "gc_Lop";
-            this.gc_Lop.Size = new System.Drawing.Size(1266, 293);
+            this.gc_Lop.Size = new System.Drawing.Size(1266, 259);
             this.gc_Lop.TabIndex = 6;
             this.gc_Lop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -370,9 +388,10 @@
             this.gbLop.Controls.Add(mALOPLabel);
             this.gbLop.Controls.Add(this.txtMLOP);
             this.gbLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbLop.Location = new System.Drawing.Point(0, 399);
+            this.gbLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLop.Location = new System.Drawing.Point(0, 365);
             this.gbLop.Name = "gbLop";
-            this.gbLop.Size = new System.Drawing.Size(1266, 195);
+            this.gbLop.Size = new System.Drawing.Size(1266, 229);
             this.gbLop.TabIndex = 7;
             this.gbLop.TabStop = false;
             this.gbLop.Text = "Nhập thông tin lớp";
@@ -384,9 +403,9 @@
             this.cmbMAKH.DisplayMember = "TENKH";
             this.cmbMAKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMAKH.FormattingEnabled = true;
-            this.cmbMAKH.Location = new System.Drawing.Point(837, 47);
+            this.cmbMAKH.Location = new System.Drawing.Point(991, 45);
             this.cmbMAKH.Name = "cmbMAKH";
-            this.cmbMAKH.Size = new System.Drawing.Size(234, 24);
+            this.cmbMAKH.Size = new System.Drawing.Size(234, 31);
             this.cmbMAKH.TabIndex = 5;
             this.cmbMAKH.ValueMember = "MAKH";
             // 
@@ -398,7 +417,7 @@
             // txtTENLOP
             // 
             this.txtTENLOP.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_Lop, "TENLOP", true));
-            this.txtTENLOP.Location = new System.Drawing.Point(463, 47);
+            this.txtTENLOP.Location = new System.Drawing.Point(559, 51);
             this.txtTENLOP.MenuManager = this.barManager1;
             this.txtTENLOP.Name = "txtTENLOP";
             this.txtTENLOP.Size = new System.Drawing.Size(277, 22);
@@ -407,7 +426,7 @@
             // txtMLOP
             // 
             this.txtMLOP.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_Lop, "MALOP", true));
-            this.txtMLOP.Location = new System.Drawing.Point(86, 47);
+            this.txtMLOP.Location = new System.Drawing.Point(125, 50);
             this.txtMLOP.MenuManager = this.barManager1;
             this.txtMLOP.Name = "txtMLOP";
             this.txtMLOP.Size = new System.Drawing.Size(263, 22);
@@ -502,5 +521,6 @@
         private DSTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private System.Windows.Forms.BindingSource bds_gvdk;
         private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

@@ -155,7 +155,7 @@ namespace TN_CSDLPT_HK3
                         this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.gIAOVIEN_DANGKYTableAdapter.Update(this.dS.GIAOVIEN_DANGKY);
                         bds_GVDK.MoveFirst();
-
+                        bds_GVDK.Position = vitri;
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
                     }
@@ -167,7 +167,7 @@ namespace TN_CSDLPT_HK3
                         bds_GVDK.ResetCurrentItem();
                         this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.gIAOVIEN_DANGKYTableAdapter.Update(this.dS.GIAOVIEN_DANGKY);
-
+                        bds_GVDK.Position = vitri;
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
                 }

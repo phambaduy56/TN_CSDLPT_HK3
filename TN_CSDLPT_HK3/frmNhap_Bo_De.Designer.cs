@@ -48,6 +48,7 @@
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -72,17 +73,17 @@
             this.colDAP_AN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gb_BoDe = new System.Windows.Forms.GroupBox();
+            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
+            this.bds_MonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.txtCauHoi = new DevExpress.XtraEditors.TextEdit();
             this.txt_DapAn = new System.Windows.Forms.ComboBox();
-            this.txtTrinhDo = new System.Windows.Forms.ComboBox();
+            this.cmbTrinhDo = new System.Windows.Forms.ComboBox();
             this.txtMAGV = new DevExpress.XtraEditors.TextEdit();
             this.txt_D = new DevExpress.XtraEditors.TextEdit();
             this.txt_C = new DevExpress.XtraEditors.TextEdit();
             this.txt_B = new DevExpress.XtraEditors.TextEdit();
             this.txt_A = new DevExpress.XtraEditors.TextEdit();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
-            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
-            this.bds_MonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.MONHOCTableAdapter();
             mAMHLabel = new System.Windows.Forms.Label();
             nOIDUNGLabel = new System.Windows.Forms.Label();
@@ -101,104 +102,108 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc_bode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gb_BoDe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauHoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_D.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_C.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_B.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_A.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(10, 105);
+            mAMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAMHLabel.Location = new System.Drawing.Point(0, 105);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(53, 17);
+            mAMHLabel.Size = new System.Drawing.Size(120, 23);
             mAMHLabel.TabIndex = 2;
-            mAMHLabel.Text = "MAMH:";
+            mAMHLabel.Text = "MÔN HỌC: ";
             // 
             // nOIDUNGLabel
             // 
             nOIDUNGLabel.AutoSize = true;
-            nOIDUNGLabel.Location = new System.Drawing.Point(229, 40);
+            nOIDUNGLabel.Location = new System.Drawing.Point(449, 17);
             nOIDUNGLabel.Name = "nOIDUNGLabel";
-            nOIDUNGLabel.Size = new System.Drawing.Size(77, 17);
+            nOIDUNGLabel.Size = new System.Drawing.Size(146, 26);
             nOIDUNGLabel.TabIndex = 6;
-            nOIDUNGLabel.Text = "NOIDUNG:";
+            nOIDUNGLabel.Text = "NỘI DUNG: ";
             // 
             // aLabel
             // 
             aLabel.AutoSize = true;
-            aLabel.Location = new System.Drawing.Point(733, 43);
+            aLabel.Location = new System.Drawing.Point(973, 49);
             aLabel.Name = "aLabel";
-            aLabel.Size = new System.Drawing.Size(21, 17);
+            aLabel.Size = new System.Drawing.Size(37, 26);
             aLabel.TabIndex = 8;
             aLabel.Text = "A:";
             // 
             // bLabel
             // 
             bLabel.AutoSize = true;
-            bLabel.Location = new System.Drawing.Point(733, 81);
+            bLabel.Location = new System.Drawing.Point(973, 88);
             bLabel.Name = "bLabel";
-            bLabel.Size = new System.Drawing.Size(21, 17);
+            bLabel.Size = new System.Drawing.Size(36, 26);
             bLabel.TabIndex = 10;
             bLabel.Text = "B:";
             // 
             // cLabel
             // 
             cLabel.AutoSize = true;
-            cLabel.Location = new System.Drawing.Point(733, 123);
+            cLabel.Location = new System.Drawing.Point(973, 125);
             cLabel.Name = "cLabel";
-            cLabel.Size = new System.Drawing.Size(21, 17);
+            cLabel.Size = new System.Drawing.Size(37, 26);
             cLabel.TabIndex = 12;
             cLabel.Text = "C:";
             // 
             // dLabel
             // 
             dLabel.AutoSize = true;
-            dLabel.Location = new System.Drawing.Point(732, 167);
+            dLabel.Location = new System.Drawing.Point(972, 169);
             dLabel.Name = "dLabel";
-            dLabel.Size = new System.Drawing.Size(22, 17);
+            dLabel.Size = new System.Drawing.Size(37, 26);
             dLabel.TabIndex = 14;
             dLabel.Text = "D:";
             // 
             // mAGVLabel
             // 
             mAGVLabel.AutoSize = true;
-            mAGVLabel.Location = new System.Drawing.Point(34, 211);
+            mAGVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAGVLabel.Location = new System.Drawing.Point(31, 228);
             mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(52, 17);
+            mAGVLabel.Size = new System.Drawing.Size(77, 23);
             mAGVLabel.TabIndex = 18;
             mAGVLabel.Text = "MAGV:";
             // 
             // tRINHDOLabel
             // 
             tRINHDOLabel.AutoSize = true;
-            tRINHDOLabel.Location = new System.Drawing.Point(11, 163);
+            tRINHDOLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tRINHDOLabel.Location = new System.Drawing.Point(0, 166);
             tRINHDOLabel.Name = "tRINHDOLabel";
-            tRINHDOLabel.Size = new System.Drawing.Size(75, 17);
+            tRINHDOLabel.Size = new System.Drawing.Size(110, 23);
             tRINHDOLabel.TabIndex = 20;
             tRINHDOLabel.Text = "TRINHDO:";
             // 
             // dAP_ANLabel
             // 
             dAP_ANLabel.AutoSize = true;
-            dAP_ANLabel.Location = new System.Drawing.Point(754, 211);
+            dAP_ANLabel.Location = new System.Drawing.Point(982, 229);
             dAP_ANLabel.Name = "dAP_ANLabel";
-            dAP_ANLabel.Size = new System.Drawing.Size(63, 17);
+            dAP_ANLabel.Size = new System.Drawing.Size(108, 26);
             dAP_ANLabel.TabIndex = 21;
-            dAP_ANLabel.Text = "DAP AN:";
+            dAP_ANLabel.Text = "ĐÁP ÁN:";
             // 
             // cAUHOILabel
             // 
             cAUHOILabel.AutoSize = true;
-            cAUHOILabel.Location = new System.Drawing.Point(18, 43);
+            cAUHOILabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cAUHOILabel.Location = new System.Drawing.Point(6, 43);
             cAUHOILabel.Name = "cAUHOILabel";
-            cAUHOILabel.Size = new System.Drawing.Size(64, 17);
+            cAUHOILabel.Size = new System.Drawing.Size(102, 23);
             cAUHOILabel.TabIndex = 22;
-            cAUHOILabel.Text = "CAUHOI:";
+            cAUHOILabel.Text = "CÂU HỎI:";
             // 
             // barManager1
             // 
@@ -216,9 +221,10 @@
             this.btnXoa,
             this.btnPhucHoi,
             this.btnHuy,
-            this.btnThoat});
+            this.btnThoat,
+            this.barButtonItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 7;
+            this.barManager1.MaxItemId = 8;
             // 
             // bar2
             // 
@@ -232,7 +238,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -281,6 +288,7 @@
             this.btnPhucHoi.ImageOptions.Image = global::TN_CSDLPT_HK3.Properties.Resources.reset2_16x165;
             this.btnPhucHoi.ImageOptions.LargeImage = global::TN_CSDLPT_HK3.Properties.Resources.reset2_32x325;
             this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
             // 
             // btnHuy
             // 
@@ -300,13 +308,22 @@
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "RELOAD";
+            this.barButtonItem1.Id = 7;
+            this.barButtonItem1.ImageOptions.Image = global::TN_CSDLPT_HK3.Properties.Resources.refresh_16x162;
+            this.barButtonItem1.ImageOptions.LargeImage = global::TN_CSDLPT_HK3.Properties.Resources.refresh_32x322;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1282, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1543, 30);
             // 
             // barDockControlBottom
             // 
@@ -314,7 +331,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 638);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1282, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1543, 0);
             // 
             // barDockControlLeft
             // 
@@ -328,7 +345,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1282, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1543, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 608);
             // 
@@ -339,25 +356,27 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1282, 76);
+            this.panel1.Size = new System.Drawing.Size(1543, 76);
             this.panel1.TabIndex = 6;
             // 
             // cmbCoSo
             // 
             this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCoSo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(204, 25);
+            this.cmbCoSo.Location = new System.Drawing.Point(228, 25);
             this.cmbCoSo.Name = "cmbCoSo";
-            this.cmbCoSo.Size = new System.Drawing.Size(403, 24);
+            this.cmbCoSo.Size = new System.Drawing.Size(403, 31);
             this.cmbCoSo.TabIndex = 1;
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(138, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(84, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "CƠ SỞ: ";
             // 
@@ -398,7 +417,7 @@
             this.gc_bode.MainView = this.gridView1;
             this.gc_bode.MenuManager = this.barManager1;
             this.gc_bode.Name = "gc_bode";
-            this.gc_bode.Size = new System.Drawing.Size(1282, 251);
+            this.gc_bode.Size = new System.Drawing.Size(1543, 251);
             this.gc_bode.TabIndex = 7;
             this.gc_bode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -537,7 +556,7 @@
             this.gb_BoDe.Controls.Add(dAP_ANLabel);
             this.gb_BoDe.Controls.Add(this.txt_DapAn);
             this.gb_BoDe.Controls.Add(tRINHDOLabel);
-            this.gb_BoDe.Controls.Add(this.txtTrinhDo);
+            this.gb_BoDe.Controls.Add(this.cmbTrinhDo);
             this.gb_BoDe.Controls.Add(mAGVLabel);
             this.gb_BoDe.Controls.Add(this.txtMAGV);
             this.gb_BoDe.Controls.Add(dLabel);
@@ -552,20 +571,39 @@
             this.gb_BoDe.Controls.Add(this.txtNoiDung);
             this.gb_BoDe.Controls.Add(mAMHLabel);
             this.gb_BoDe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_BoDe.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_BoDe.Location = new System.Drawing.Point(0, 357);
             this.gb_BoDe.Name = "gb_BoDe";
-            this.gb_BoDe.Size = new System.Drawing.Size(1282, 281);
+            this.gb_BoDe.Size = new System.Drawing.Size(1543, 281);
             this.gb_BoDe.TabIndex = 8;
             this.gb_BoDe.TabStop = false;
             this.gb_BoDe.Text = "Nhập bộ đề";
             // 
+            // cmbMonHoc
+            // 
+            this.cmbMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_bode, "MAMH", true));
+            this.cmbMonHoc.DataSource = this.bds_MonHoc;
+            this.cmbMonHoc.DisplayMember = "TENMH";
+            this.cmbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMonHoc.FormattingEnabled = true;
+            this.cmbMonHoc.Location = new System.Drawing.Point(129, 100);
+            this.cmbMonHoc.Name = "cmbMonHoc";
+            this.cmbMonHoc.Size = new System.Drawing.Size(249, 33);
+            this.cmbMonHoc.TabIndex = 24;
+            this.cmbMonHoc.ValueMember = "MAMH";
+            // 
+            // bds_MonHoc
+            // 
+            this.bds_MonHoc.DataMember = "MONHOC";
+            this.bds_MonHoc.DataSource = this.dS;
+            // 
             // txtCauHoi
             // 
             this.txtCauHoi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_bode, "CAUHOI", true));
-            this.txtCauHoi.Location = new System.Drawing.Point(88, 40);
+            this.txtCauHoi.Location = new System.Drawing.Point(129, 46);
             this.txtCauHoi.MenuManager = this.barManager1;
             this.txtCauHoi.Name = "txtCauHoi";
-            this.txtCauHoi.Size = new System.Drawing.Size(125, 22);
+            this.txtCauHoi.Size = new System.Drawing.Size(249, 22);
             this.txtCauHoi.TabIndex = 23;
             // 
             // txt_DapAn
@@ -578,38 +616,40 @@
             "B",
             "C",
             "D"});
-            this.txt_DapAn.Location = new System.Drawing.Point(823, 208);
+            this.txt_DapAn.Location = new System.Drawing.Point(1105, 226);
             this.txt_DapAn.Name = "txt_DapAn";
-            this.txt_DapAn.Size = new System.Drawing.Size(121, 24);
+            this.txt_DapAn.Size = new System.Drawing.Size(121, 33);
             this.txt_DapAn.TabIndex = 22;
             // 
-            // txtTrinhDo
+            // cmbTrinhDo
             // 
-            this.txtTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_bode, "TRINHDO", true));
-            this.txtTrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtTrinhDo.FormattingEnabled = true;
-            this.txtTrinhDo.Items.AddRange(new object[] {
+            this.cmbTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_bode, "TRINHDO", true));
+            this.cmbTrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTrinhDo.FormattingEnabled = true;
+            this.cmbTrinhDo.Items.AddRange(new object[] {
             "A",
             "B",
             "C"});
-            this.txtTrinhDo.Location = new System.Drawing.Point(92, 160);
-            this.txtTrinhDo.Name = "txtTrinhDo";
-            this.txtTrinhDo.Size = new System.Drawing.Size(121, 24);
-            this.txtTrinhDo.TabIndex = 21;
+            this.cmbTrinhDo.Location = new System.Drawing.Point(129, 161);
+            this.cmbTrinhDo.Name = "cmbTrinhDo";
+            this.cmbTrinhDo.Size = new System.Drawing.Size(249, 33);
+            this.cmbTrinhDo.TabIndex = 21;
             // 
             // txtMAGV
             // 
             this.txtMAGV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "MAGV", true));
-            this.txtMAGV.Location = new System.Drawing.Point(92, 208);
+            this.txtMAGV.Location = new System.Drawing.Point(127, 222);
             this.txtMAGV.MenuManager = this.barManager1;
             this.txtMAGV.Name = "txtMAGV";
-            this.txtMAGV.Size = new System.Drawing.Size(125, 22);
+            this.txtMAGV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAGV.Properties.Appearance.Options.UseFont = true;
+            this.txtMAGV.Size = new System.Drawing.Size(251, 30);
             this.txtMAGV.TabIndex = 19;
             // 
             // txt_D
             // 
             this.txt_D.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "D", true));
-            this.txt_D.Location = new System.Drawing.Point(760, 164);
+            this.txt_D.Location = new System.Drawing.Point(1029, 173);
             this.txt_D.MenuManager = this.barManager1;
             this.txt_D.Name = "txt_D";
             this.txt_D.Size = new System.Drawing.Size(502, 22);
@@ -618,7 +658,7 @@
             // txt_C
             // 
             this.txt_C.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "C", true));
-            this.txt_C.Location = new System.Drawing.Point(760, 120);
+            this.txt_C.Location = new System.Drawing.Point(1029, 129);
             this.txt_C.MenuManager = this.barManager1;
             this.txt_C.Name = "txt_C";
             this.txt_C.Size = new System.Drawing.Size(502, 22);
@@ -627,7 +667,7 @@
             // txt_B
             // 
             this.txt_B.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "B", true));
-            this.txt_B.Location = new System.Drawing.Point(760, 78);
+            this.txt_B.Location = new System.Drawing.Point(1029, 85);
             this.txt_B.MenuManager = this.barManager1;
             this.txt_B.Name = "txt_B";
             this.txt_B.Size = new System.Drawing.Size(502, 22);
@@ -636,7 +676,7 @@
             // txt_A
             // 
             this.txt_A.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_bode, "A", true));
-            this.txt_A.Location = new System.Drawing.Point(760, 40);
+            this.txt_A.Location = new System.Drawing.Point(1029, 46);
             this.txt_A.MenuManager = this.barManager1;
             this.txt_A.Name = "txt_A";
             this.txt_A.Size = new System.Drawing.Size(502, 22);
@@ -645,29 +685,11 @@
             // txtNoiDung
             // 
             this.txtNoiDung.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_bode, "NOIDUNG", true));
-            this.txtNoiDung.Location = new System.Drawing.Point(312, 41);
+            this.txtNoiDung.Location = new System.Drawing.Point(423, 46);
             this.txtNoiDung.Multiline = true;
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(399, 187);
+            this.txtNoiDung.Size = new System.Drawing.Size(499, 226);
             this.txtNoiDung.TabIndex = 7;
-            // 
-            // cmbMonHoc
-            // 
-            this.cmbMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_bode, "MAMH", true));
-            this.cmbMonHoc.DataSource = this.bds_MonHoc;
-            this.cmbMonHoc.DisplayMember = "TENMH";
-            this.cmbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMonHoc.FormattingEnabled = true;
-            this.cmbMonHoc.Location = new System.Drawing.Point(69, 102);
-            this.cmbMonHoc.Name = "cmbMonHoc";
-            this.cmbMonHoc.Size = new System.Drawing.Size(237, 24);
-            this.cmbMonHoc.TabIndex = 24;
-            this.cmbMonHoc.ValueMember = "MAMH";
-            // 
-            // bds_MonHoc
-            // 
-            this.bds_MonHoc.DataMember = "MONHOC";
-            this.bds_MonHoc.DataSource = this.dS;
             // 
             // mONHOCTableAdapter
             // 
@@ -677,7 +699,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 638);
+            this.ClientSize = new System.Drawing.Size(1543, 638);
             this.Controls.Add(this.gb_BoDe);
             this.Controls.Add(this.gc_bode);
             this.Controls.Add(this.panel1);
@@ -697,13 +719,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gb_BoDe.ResumeLayout(false);
             this.gb_BoDe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauHoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_D.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_C.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_B.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_A.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -750,11 +772,12 @@
         private DevExpress.XtraEditors.TextEdit txt_A;
         private DevExpress.XtraEditors.TextEdit txt_D;
         private DevExpress.XtraEditors.TextEdit txtMAGV;
-        private System.Windows.Forms.ComboBox txtTrinhDo;
+        private System.Windows.Forms.ComboBox cmbTrinhDo;
         private System.Windows.Forms.ComboBox txt_DapAn;
         private DevExpress.XtraEditors.TextEdit txtCauHoi;
         private System.Windows.Forms.ComboBox cmbMonHoc;
         private System.Windows.Forms.BindingSource bds_MonHoc;
         private DSTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

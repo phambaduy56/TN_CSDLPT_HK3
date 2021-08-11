@@ -204,7 +204,14 @@ namespace TN_CSDLPT_HK3
 
         private void barButtonItem1_ItemClick_3(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.CheckExists(typeof(frmDangKy));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDangKy f = new frmDangKy();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

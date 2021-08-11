@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace TN_CSDLPT_HK3
 {
     public partial class frmLop : Form
     {
+        Stack undolist = new Stack();
         int vitri = 0;
         String maKhoa = "";
         private BindingSource bds = new BindingSource();
@@ -118,10 +120,11 @@ namespace TN_CSDLPT_HK3
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.control = "Them";
-            vitri = bds_Lop.Position;
+            Program.control = "Them"; 
             bds_Lop.AddNew();
+            vitri = bds_Lop.Position;
             Hien_thi_khi_them();
+            txtTENLOP.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -129,7 +132,12 @@ namespace TN_CSDLPT_HK3
             Program.control = "Sua";
             vitri = bds_Lop.Position;
             Hien_thi_khi_them();
+
+            undolist.Push(txtMLOP.Text + "#" + txtTENLOP.Text + "#" + cmbMAKH.SelectedIndex);
+            undolist.Push("EDIT");
+
             cmbMAKH.Enabled = false;
+            txtMLOP.Enabled = false;
         }
 
         private bool kiem_tra_ma_LOP()
@@ -198,10 +206,12 @@ namespace TN_CSDLPT_HK3
                         bds_Lop.ResetCurrentItem();
                         this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.lOPTableAdapter.Update(this.dS.LOP);
-                        bds_Lop.MoveFirst();
-
+                        undolist.Push(txtMLOP.Text);
+                        undolist.Push("INSERT");
+                        bds_Lop.Position = vitri;
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
                     }
                 }
                 if (Program.control == "Sua")
@@ -211,10 +221,11 @@ namespace TN_CSDLPT_HK3
                         bds_Lop.ResetCurrentItem();
                         this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.lOPTableAdapter.Update(this.dS.LOP);
-
+                        bds_Lop.Position = vitri;
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
                         cmbMAKH.Enabled = true;
+                        btnPhucHoi.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -241,12 +252,17 @@ namespace TN_CSDLPT_HK3
 
                 try
                 {
+                    undolist.Push(txtMLOP.Text + "#" + txtTENLOP.Text + "#" + cmbMAKH.SelectedIndex);
+                    undolist.Push("DELETE");
                     bds_Lop.RemoveCurrent();
                     this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.lOPTableAdapter.Update(this.dS.LOP);
+                    btnPhucHoi.Enabled = true;
                 }
                 catch (Exception ex)
                 {
+                    undolist.Pop();
+                    undolist.Pop();
                     MessageBox.Show("Lỗi xóa Lớp\n" + ex.Message, "", MessageBoxButtons.OK);
                     this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.lOPTableAdapter.Fill(this.dS.LOP);
@@ -257,6 +273,11 @@ namespace TN_CSDLPT_HK3
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (undolist.Count > 0)
+            {
+                undolist.Pop();
+                undolist.Pop();
+            }
             bds_Lop.CancelEdit();
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.dS.LOP);
@@ -295,6 +316,68 @@ namespace TN_CSDLPT_HK3
             {
                 this.Close();
             }
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (undolist.Count > 0)
+            {
+                String statement = undolist.Pop().ToString();
+                if (statement.Equals("DELETE"))
+                {
+
+                    this.bds_Lop.AddNew();
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    txtMLOP.Text = TT_Kho[0];
+                    txtTENLOP.Text = TT_Kho[1];
+                    cmbMAKH.SelectedIndex = int.Parse(TT_Kho[2]);
+                    this.bds_Lop.EndEdit();
+                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.lOPTableAdapter.Update(this.dS.LOP);
+                }
+                else if (statement.Equals("INSERT"))
+                {
+                    String MALOP = undolist.Pop().ToString();
+                    int vitrixoa = bds_Lop.Find("MALOP", MALOP);
+                    bds_Lop.Position = vitrixoa;
+                    bds_Lop.RemoveCurrent();
+
+                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.lOPTableAdapter.Update(this.dS.LOP);
+                }
+                else if (statement.Equals("EDIT"))
+                {
+
+
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    bds_Lop.Position = bds_Lop.Find("MALOP", TT_Kho[0]);
+
+                    txtTENLOP.Text = TT_Kho[1];
+                    cmbMAKH.SelectedIndex = int.Parse(TT_Kho[2]);
+
+                    this.bds_Lop.EndEdit();
+                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.lOPTableAdapter.Update(this.dS.LOP);
+                }
+            }
+            if (undolist.Count == 0) btnPhucHoi.Enabled = false;
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
+            this.kHOATableAdapter.Fill(this.dS.KHOA);
+
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.lOPTableAdapter.Fill(this.dS.LOP);
+
+            this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
+
+            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
         }
     }
 }

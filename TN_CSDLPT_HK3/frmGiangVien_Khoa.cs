@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace TN_CSDLPT_HK3
         private BindingSource bds = new BindingSource();
         private int vitri = 0;
         String maKhoa = "";
+        Stack undolist = new Stack();
         public frmGiangVien_Khoa()
         {
             InitializeComponent();
@@ -108,18 +110,21 @@ namespace TN_CSDLPT_HK3
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.control = "Them";
-            vitri = bds_GiaoVien.Position;
+            Program.control = "Them";          
             bds_GiaoVien.AddNew();
-           
+            vitri = bds_GiaoVien.Position;
             Hien_thi_khi_them();
+            txtMAGV.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Sua";
-            vitri = bds_GiaoVien.Position;
+            
             Hien_thi_khi_them();
+            vitri = bds_GiaoVien.Position;
+            undolist.Push(txtMAGV.Text + "#" + txtHO.Text + "#" + txtTEN.Text + "#" + txtDiaChi.Text);
+            undolist.Push("EDIT");
             txtMAGV.Enabled = false;
         }
 
@@ -179,11 +184,48 @@ namespace TN_CSDLPT_HK3
             return true;
         }
 
+        private bool kiem_tra_ma_GV()
+        {
+            string str = "exec SP_KIEM_TRA_MA_GV N'" + txtMAGV.Text + "'";
+
+            Program.myReader = Program.ExecSqlDataReader(str);
+            Program.myReader.Read();
+
+            String kq = Program.myReader.GetString(0);
+            Program.myReader.Close();
+            if (kq == "1")
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 if (Program.control == "Them")
+                {
+                    if(kiem_tra_ma_GV() == true)
+                    {
+                        MessageBox.Show("Mã giáo viên không được để trùng!");
+                        return;
+                    }    
+                    if (kiemTraTruocKhiGhi())
+                    {
+                        bds_GiaoVien.EndEdit();
+                        bds_GiaoVien.ResetCurrentItem();
+                        this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
+                        undolist.Push(txtMAGV.Text);
+                        undolist.Push("INSERT");
+                        bds_GiaoVien.Position = vitri;
+                        MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
+                        Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
+                    }
+                }
+                if (Program.control == "Sua")
                 {
                     if (kiemTraTruocKhiGhi())
                     {
@@ -191,23 +233,12 @@ namespace TN_CSDLPT_HK3
                         bds_GiaoVien.ResetCurrentItem();
                         this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
-                        bds_GiaoVien.MoveFirst();
-
-                        MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
-                        Btn_ban_dau();
-                    }
-                }
-                if (Program.control == "Sua")
-                {
-                   
-                        bds_GiaoVien.EndEdit();
-                        bds_GiaoVien.ResetCurrentItem();
-                        this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
-
+                        bds_GiaoVien.Position = vitri;
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
                         txtMAGV.Enabled = true;
+                        btnPhucHoi.Enabled = true;
+                    }       
                 }
             }
             catch (Exception ex)
@@ -219,17 +250,22 @@ namespace TN_CSDLPT_HK3
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            if (MessageBox.Show("Bạn có muốn xóa khoa: " + txtHO.Text + " " + txtTEN.Text +" ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn xóa giáo viên: " + txtHO.Text + " " + txtTEN.Text +" ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 
                 try
                 {
+                    undolist.Push(txtMAGV.Text + "#" + txtHO.Text + "#" + txtTEN.Text + "#" + txtDiaChi.Text);
+                    undolist.Push("DELETE");
                     bds_GiaoVien.RemoveCurrent();
                     this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
+                    btnPhucHoi.Enabled = true;
                 }
                 catch (Exception ex)
                 {
+                    undolist.Pop();
+                    undolist.Pop();
                     MessageBox.Show("Lỗi xóa Lớp\n" + ex.Message, "", MessageBoxButtons.OK);
                     this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
@@ -242,6 +278,8 @@ namespace TN_CSDLPT_HK3
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            undolist.Pop();
+            undolist.Pop();
             bds_GiaoVien.CancelEdit();
             this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
@@ -279,6 +317,65 @@ namespace TN_CSDLPT_HK3
             {
                 this.Close();
             }
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (undolist.Count > 0)
+            {
+                //lay cai key 
+                //kiem tra xem no thuoc cai nao
+                String statement = undolist.Pop().ToString();
+                if (statement.Equals("DELETE"))
+                {
+
+                    this.bds_GiaoVien.AddNew();
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    txtMAGV.Text = TT_Kho[0];
+                    txtHO.Text = TT_Kho[1];
+                    txtTEN.Text = TT_Kho[2];
+                    txtDiaChi.Text = TT_Kho[3];
+                    this.bds_GiaoVien.EndEdit();
+                    this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
+                }
+                else if (statement.Equals("INSERT"))
+                {
+                    String MAGV = undolist.Pop().ToString();
+                    int vitrixoa = bds_gv.Find("MAGV", MAGV);
+                    bds_GiaoVien.Position = vitrixoa;
+                    bds_GiaoVien.RemoveCurrent();
+
+
+                    this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
+                }
+                else if (statement.Equals("EDIT"))
+                {
+
+
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    bds_GiaoVien.Position = bds_gv.Find("MAGV", TT_Kho[0]);
+
+                    txtHO.Text = TT_Kho[1];
+                    txtTEN.Text = TT_Kho[2];
+                    txtDiaChi.Text = TT_Kho[3];
+
+                    this.bds_Khoa.EndEdit();
+                    
+                    this.gIAOVIENTableAdapter.Update(this.dS.GIAOVIEN);
+                }
+            }
+            if (undolist.Count == 0) btnPhucHoi.Enabled = false;
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
+
+            this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
+            this.kHOATableAdapter.Fill(this.dS.KHOA);
         }
     }
 }

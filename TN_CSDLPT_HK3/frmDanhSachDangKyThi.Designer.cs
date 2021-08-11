@@ -72,19 +72,21 @@
             // cmbCoSo
             // 
             this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCoSo.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(285, 36);
+            this.cmbCoSo.Location = new System.Drawing.Point(285, 33);
             this.cmbCoSo.Name = "cmbCoSo";
-            this.cmbCoSo.Size = new System.Drawing.Size(383, 24);
+            this.cmbCoSo.Size = new System.Drawing.Size(383, 33);
             this.cmbCoSo.TabIndex = 1;
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(219, 39);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(179, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(100, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "CƠ SỞ: ";
             // 
@@ -104,7 +106,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(893, 40);
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(872, 40);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 39);
             this.button2.TabIndex = 5;
@@ -114,9 +117,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(716, 40);
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(696, 40);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 39);
+            this.button1.Size = new System.Drawing.Size(142, 39);
             this.button1.TabIndex = 4;
             this.button1.Text = "In Báo Cáo";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,43 +129,49 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(383, 52);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(348, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
+            this.label3.Size = new System.Drawing.Size(126, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = "Đến Ngày: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 51);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(39, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(110, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "Từ ngày :";
             // 
             // date_2
             // 
             this.date_2.EditValue = new System.DateTime(2021, 8, 1, 14, 19, 15, 348);
-            this.date_2.Location = new System.Drawing.Point(468, 49);
+            this.date_2.Location = new System.Drawing.Point(480, 42);
             this.date_2.Name = "date_2";
+            this.date_2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_2.Properties.Appearance.Options.UseFont = true;
             this.date_2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_2.Size = new System.Drawing.Size(136, 22);
+            this.date_2.Size = new System.Drawing.Size(136, 32);
             this.date_2.TabIndex = 1;
             // 
             // date_1
             // 
             this.date_1.EditValue = new System.DateTime(2021, 8, 1, 14, 18, 17, 0);
-            this.date_1.Location = new System.Drawing.Point(155, 49);
+            this.date_1.Location = new System.Drawing.Point(155, 42);
             this.date_1.Name = "date_1";
+            this.date_1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_1.Properties.Appearance.Options.UseFont = true;
             this.date_1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_1.Size = new System.Drawing.Size(150, 22);
+            this.date_1.Size = new System.Drawing.Size(150, 32);
             this.date_1.TabIndex = 0;
             // 
             // tN_CSDLPTDataSet3

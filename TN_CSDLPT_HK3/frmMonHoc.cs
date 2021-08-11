@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,9 @@ namespace TN_CSDLPT_HK3
     {
         private BindingSource bds = new BindingSource();
         int vitri = 0;
-        public static int kiemtra;
+
+        Stack undolist = new Stack();
+
         public frmMonHoc()
         {
             InitializeComponent();
@@ -102,17 +105,21 @@ namespace TN_CSDLPT_HK3
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Them";
-            vitri = bds_MonHoc.Position;
             bds_MonHoc.AddNew();
-
+            vitri = bds_MonHoc.Position;
             Hien_thi_khi_them();
-
+            txtMAMH.Enabled = true;
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Sua";
             vitri = bds_MonHoc.Position;
+
+            txtMAMH.Enabled = false;
+
+            undolist.Push(txtMAMH.Text + "#" + txtTENMH.Text);
+            undolist.Push("EDIT");
 
             Hien_thi_khi_them();
         }
@@ -154,6 +161,7 @@ namespace TN_CSDLPT_HK3
         {
             try
             {
+
                 if (Program.control == "Them")
                 {
                     if (kiemTraTruocKhiGhi())
@@ -168,10 +176,12 @@ namespace TN_CSDLPT_HK3
                         bds_MonHoc.ResetCurrentItem();
                         this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.mONHOCTableAdapter.Update(this.dS.MONHOC);
-                        bds_MonHoc.MoveFirst();
-                      
-                        MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
+                        undolist.Push(txtMAMH.Text);
+                        undolist.Push("INSERT");
+                        bds_MonHoc.Position = vitri;
+                        MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);         
                         Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
                     }
                 }
                 if (Program.control == "Sua")
@@ -182,9 +192,9 @@ namespace TN_CSDLPT_HK3
                         bds_MonHoc.ResetCurrentItem();
                         this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.mONHOCTableAdapter.Update(this.dS.MONHOC);
-
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
+                        btnPhucHoi.Enabled = true;
                     }
                 }
             }
@@ -216,6 +226,11 @@ namespace TN_CSDLPT_HK3
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
             Btn_ban_dau();
+            if(undolist.Count > 0)
+            {
+                undolist.Pop();
+                undolist.Pop();
+            }
             if (Program.mGroup == "PGV")
             {
                 //bat tat theo phan quyen
@@ -234,13 +249,18 @@ namespace TN_CSDLPT_HK3
               
                 try
                 {
+                    undolist.Push(txtMAMH.Text + "#" + txtTENMH.Text);
+                    undolist.Push("DELETE");
                     bds_MonHoc.RemoveCurrent();
                     this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.mONHOCTableAdapter.Update(this.dS.MONHOC);
+                    btnPhucHoi.Enabled = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xóa môn học\n" + ex.Message, "", MessageBoxButtons.OK);
+                    undolist.Pop();
+                    undolist.Pop();
                     this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
                 }
@@ -283,6 +303,54 @@ namespace TN_CSDLPT_HK3
             {
                 this.Close();
             }
+        }
+
+        private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (undolist.Count > 0)
+            {
+                String statement = undolist.Pop().ToString();
+                if (statement.Equals("DELETE"))
+                {
+                    
+                    this.bds_MonHoc.AddNew();
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    txtMAMH.Text = TT_Kho[0];
+                    txtTENMH.Text = TT_Kho[1];
+                    this.bds_MonHoc.EndEdit();
+                    this.mONHOCTableAdapter.Update(this.dS.MONHOC);
+                }
+                else if (statement.Equals("INSERT"))
+                {
+                    String MAMH = undolist.Pop().ToString();
+                    int vitrixoa = bds_MonHoc.Find("MAMH", MAMH);
+                    bds_MonHoc.Position = vitrixoa;
+                    bds_MonHoc.RemoveCurrent();
+                    this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.mONHOCTableAdapter.Update(this.dS.MONHOC);
+                }
+                else if (statement.Equals("EDIT"))
+                {
+
+
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    bds_MonHoc.Position = bds_MonHoc.Find("MAMH", TT_Kho[0]);
+
+                    txtTENMH.Text = TT_Kho[0];
+
+                    this.bds_MonHoc.EndEdit();
+                    this.mONHOCTableAdapter.Update(this.dS.MONHOC);
+                }
+            }
+            if (undolist.Count == 0) btnPhucHoi.Enabled = false;
         }
     }
 }

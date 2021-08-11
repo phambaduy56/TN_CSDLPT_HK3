@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace TN_CSDLPT_HK3
     {
         int vitri = 0;
         String maLop = "";
+        Stack undolist = new Stack();
         private BindingSource bds = new BindingSource();
         public frmSinhVien_Lop()
         {
@@ -118,22 +120,24 @@ namespace TN_CSDLPT_HK3
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             
-
             Program.control = "Them";
             vitri = bds_SinhVien.Position;
             bds_SinhVien.AddNew();
 
             Hien_thi_khi_them();
             gc_lop.Enabled = false;
+            txtMaSv.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Sua";
             vitri = bds_Lop.Position;
-
+            undolist.Push(txtMaSv.Text + "#" + txtHo.Text + "#" + txtTen.Text + "#" + date_NgaySinh.DateTime.ToString("yyyy-MM-dd HH:mm:ss") + "#" + txtDiaChi.Text);
+            undolist.Push("EDIT");
             Hien_thi_khi_them();
             gc_lop.Enabled = false;
+            txtMaSv.Enabled = false;
         }
 
         private bool kiem_tra_ma_sv()
@@ -234,11 +238,13 @@ namespace TN_CSDLPT_HK3
                         bds_SinhVien.ResetCurrentItem();
                         this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
-                        bds_Lop.MoveFirst();
-
+                        undolist.Push(txtMaSv.Text.Trim());
+                        undolist.Push("INSERT");                                      
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
+                        bds_SinhVien.Position = vitri;
                         Btn_ban_dau();
                         gc_lop.Enabled = true;
+                        btnPhucHoi.Enabled = true;
                     }
                 }
                 if (Program.control == "Sua")
@@ -251,10 +257,11 @@ namespace TN_CSDLPT_HK3
                         bds_SinhVien.ResetCurrentItem();
                         this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
-
                         MessageBox.Show("Đã sửa thành công", "", MessageBoxButtons.OK);
+                        bds_SinhVien.Position = vitri;
                         Btn_ban_dau();
                         gc_lop.Enabled = true;
+                        btnPhucHoi.Enabled = true;
                     }
                 }
             }
@@ -276,12 +283,17 @@ namespace TN_CSDLPT_HK3
                 }
                 try
                 {
+                    undolist.Push(txtMaSv.Text + "#" +  txtHo.Text + "#" + txtTen.Text + "#" + date_NgaySinh.DateTime.ToString("yyyy-MM-dd HH:mm:ss") + "#" + txtDiaChi.Text);
+                    undolist.Push("DELETE");
                     bds_SinhVien.RemoveCurrent();
                     this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                    btnPhucHoi.Enabled = true;
                 }
                 catch (Exception ex)
                 {
+                    undolist.Pop();
+                    undolist.Pop();
                     MessageBox.Show("Lỗi xóa Lớp\n" + ex.Message, "", MessageBoxButtons.OK);
                     this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
@@ -295,6 +307,12 @@ namespace TN_CSDLPT_HK3
             bds_SinhVien.CancelEdit();
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+            if (undolist.Count > 0)
+            {
+                undolist.Pop();
+                undolist.Pop();
+            }
+
             if (Program.mGroup == "PGV")
             {
                 //bat tat theo phan quyen
@@ -340,5 +358,67 @@ namespace TN_CSDLPT_HK3
             this.tableAdapterManager.UpdateAll(this.dS);
 
         }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.lOPTableAdapter.Fill(this.dS.LOP);
+
+            this.bANGDIEMTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.bANGDIEMTableAdapter.Fill(this.dS.BANGDIEM);
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (undolist.Count > 0)
+            {
+                String statement = undolist.Pop().ToString();
+                if (statement.Equals("DELETE"))
+                {
+
+                    this.bds_SinhVien.AddNew();
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    txtMaSv.Text = TT_Kho[0];
+                    txtHo.Text = TT_Kho[1];
+                    txtTen.Text = TT_Kho[2];
+                    txtDiaChi.Text = TT_Kho[4];
+                    this.bds_SinhVien.EndEdit();
+                    this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                }
+                else if (statement.Equals("INSERT"))
+                {
+                    String MASV = undolist.Pop().ToString();
+
+                    int vitrixoa = bds_sv.Find("MASV", MASV);
+                    bds_SinhVien.Position = vitrixoa;
+                    bds_SinhVien.RemoveCurrent();
+                    this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                }
+                else if (statement.Equals("EDIT"))
+                {
+
+
+                    String TT = undolist.Pop().ToString();
+                    String[] TT_Kho = TT.Split('#');
+                    bds_SinhVien.Position = bds_sv.Find("MASV", TT_Kho[0]);
+
+                    txtHo.Text = TT_Kho[1];
+                    txtTen.Text = TT_Kho[2];
+                    txtDiaChi.Text = TT_Kho[4];
+
+                    this.bds_SinhVien.EndEdit();
+                    this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                }
+            }
+            if (undolist.Count == 0) btnPhucHoi.Enabled = false;
+        }
+
+       
     }
 }

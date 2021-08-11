@@ -93,6 +93,12 @@
     <Compile Include="frmChuan_Bi_Thi.Designer.cs">
       <DependentUpon>frmChuan_Bi_Thi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKy.Designer.cs">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDang_Nhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChuan_Bi_Thi.resx">
       <DependentUpon>frmChuan_Bi_Thi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangKy.resx">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDang_Nhap.resx">
       <DependentUpon>frmDang_Nhap.cs</DependentUpon>
@@ -671,6 +680,84 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boreport_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boreport_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boscheduler_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boscheduler_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report2_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report2_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report2_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report2_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewallowuserstoeditranges_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewallowuserstoeditranges_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32x327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16x165.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
