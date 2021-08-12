@@ -22,17 +22,16 @@ namespace TN_CSDLPT_HK3
                 TENGV.Text = "Họ Tên: " + Program.mHoten;
                 NHOM.Text = "Chức vụ: " + Program.mGroup;
 
-                //if (Program.mGroup == "TRUONG" || Program.mGroup == "COSO")
-                //{               
-                //    btn_ban_dau();
-                //}
-
-                if(Program.mGroup == "GIANGVIEN")
+                if (Program.mGroup == "COSO")
+                {
+                    btnDangKy.Enabled = true;
+                }
+                if (Program.mGroup == "GIANGVIEN")
                 {
                     btn_ban_dau();
                     btn_BoDe.Enabled = true;
                     btnThi.Enabled = true;
-                    
+                    btnDangKy.Enabled = true;
                 }
                 if(Program.mGroup == "TRUONG")
                 {
@@ -60,6 +59,7 @@ namespace TN_CSDLPT_HK3
             btnInBangDiem.Enabled = false;
             btnInBaiThi.Enabled = false;
             btnInDanhSachThi.Enabled = false;
+            btnDangKy.Enabled = false;
         }
 
         private Form CheckExists(Type ftype)
@@ -211,6 +211,17 @@ namespace TN_CSDLPT_HK3
                 frmDangKy f = new frmDangKy();
                 f.MdiParent = this;
                 f.Show();
+            }
+        }
+
+        private void barButtonItem2_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn đăng xuất không ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                frmDang_Nhap f = new frmDang_Nhap();
+                // f.MdiParent = this;
+                f.Show();
+                this.Close();
             }
         }
     }

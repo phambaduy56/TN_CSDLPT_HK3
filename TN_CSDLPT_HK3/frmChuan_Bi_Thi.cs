@@ -118,6 +118,13 @@ namespace TN_CSDLPT_HK3
             txt_MAGV.Text = Program.username;
 
             Hien_thi_khi_them();
+            cmbMonHoc.SelectedIndex = 1;
+            cmbMonHoc.SelectedIndex = 0;
+            cmbMaLop.SelectedIndex = 1;
+            cmbMaLop.SelectedIndex = 0;
+            cmbTrinhDo.SelectedIndex = 1;
+            cmbTrinhDo.SelectedIndex = 0;
+            
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

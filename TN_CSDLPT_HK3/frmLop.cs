@@ -74,6 +74,8 @@ namespace TN_CSDLPT_HK3
                 cmbCoSo.Enabled = false;
                 Btn_ban_dau();
             }
+           
+
         }
 
         private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,6 +127,8 @@ namespace TN_CSDLPT_HK3
             vitri = bds_Lop.Position;
             Hien_thi_khi_them();
             txtTENLOP.Enabled = true;
+            cmbMAKH.SelectedIndex = 1;
+            cmbMAKH.SelectedIndex = 0;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

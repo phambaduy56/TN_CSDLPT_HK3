@@ -447,7 +447,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(131, 210);
             this.txtDiaChi.MenuManager = this.barManager1;
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(305, 22);
+            this.txtDiaChi.Size = new System.Drawing.Size(318, 22);
             this.txtDiaChi.TabIndex = 9;
             // 
             // bds_SinhVien
@@ -458,7 +458,7 @@
             // date_NgaySinh
             // 
             this.date_NgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_SinhVien, "NGAYSINH", true));
-            this.date_NgaySinh.EditValue = null;
+            this.date_NgaySinh.EditValue = new System.DateTime(2021, 8, 12, 14, 9, 5, 0);
             this.date_NgaySinh.Location = new System.Drawing.Point(131, 159);
             this.date_NgaySinh.MenuManager = this.barManager1;
             this.date_NgaySinh.Name = "date_NgaySinh";
@@ -466,7 +466,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_NgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_NgaySinh.Size = new System.Drawing.Size(305, 22);
+            this.date_NgaySinh.Size = new System.Drawing.Size(314, 22);
             this.date_NgaySinh.TabIndex = 7;
             // 
             // txtTen
@@ -493,7 +493,7 @@
             this.txtMaSv.Location = new System.Drawing.Point(131, 63);
             this.txtMaSv.MenuManager = this.barManager1;
             this.txtMaSv.Name = "txtMaSv";
-            this.txtMaSv.Size = new System.Drawing.Size(305, 22);
+            this.txtMaSv.Size = new System.Drawing.Size(314, 22);
             this.txtMaSv.TabIndex = 1;
             // 
             // gc_sinhvien

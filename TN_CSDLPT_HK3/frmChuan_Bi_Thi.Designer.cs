@@ -68,16 +68,16 @@
             this.colSOCAUTHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTHOIGIAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gb_DangKy = new System.Windows.Forms.GroupBox();
-            this.mALOPComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbMaLop = new System.Windows.Forms.ComboBox();
             this.bds_LOP = new System.Windows.Forms.BindingSource(this.components);
-            this.mAMHComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
             this.bds_MonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tHOIGIANSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.sOCAUTHISpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.lANSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.nGAYTHIDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.tRINHDOComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbTrinhDo = new System.Windows.Forms.ComboBox();
             this.txt_MAGV = new DevExpress.XtraEditors.TextEdit();
             this.mONHOCTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.MONHOCTableAdapter();
             this.lOPTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.LOPTableAdapter();
@@ -499,9 +499,9 @@
             // gb_DangKy
             // 
             this.gb_DangKy.Controls.Add(mALOPLabel);
-            this.gb_DangKy.Controls.Add(this.mALOPComboBox);
+            this.gb_DangKy.Controls.Add(this.cmbMaLop);
             this.gb_DangKy.Controls.Add(mAMHLabel);
-            this.gb_DangKy.Controls.Add(this.mAMHComboBox);
+            this.gb_DangKy.Controls.Add(this.cmbMonHoc);
             this.gb_DangKy.Controls.Add(this.label2);
             this.gb_DangKy.Controls.Add(tHOIGIANLabel);
             this.gb_DangKy.Controls.Add(this.tHOIGIANSpinEdit);
@@ -512,7 +512,7 @@
             this.gb_DangKy.Controls.Add(nGAYTHILabel);
             this.gb_DangKy.Controls.Add(this.nGAYTHIDateEdit);
             this.gb_DangKy.Controls.Add(tRINHDOLabel);
-            this.gb_DangKy.Controls.Add(this.tRINHDOComboBox);
+            this.gb_DangKy.Controls.Add(this.cmbTrinhDo);
             this.gb_DangKy.Controls.Add(mAGVLabel);
             this.gb_DangKy.Controls.Add(this.txt_MAGV);
             this.gb_DangKy.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -524,36 +524,36 @@
             this.gb_DangKy.TabStop = false;
             this.gb_DangKy.Text = "groupBox1";
             // 
-            // mALOPComboBox
+            // cmbMaLop
             // 
-            this.mALOPComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_GVDK, "MALOP", true));
-            this.mALOPComboBox.DataSource = this.bds_LOP;
-            this.mALOPComboBox.DisplayMember = "TENLOP";
-            this.mALOPComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.mALOPComboBox.FormattingEnabled = true;
-            this.mALOPComboBox.Location = new System.Drawing.Point(139, 176);
-            this.mALOPComboBox.Name = "mALOPComboBox";
-            this.mALOPComboBox.Size = new System.Drawing.Size(249, 31);
-            this.mALOPComboBox.TabIndex = 21;
-            this.mALOPComboBox.ValueMember = "MALOP";
+            this.cmbMaLop.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_GVDK, "MALOP", true));
+            this.cmbMaLop.DataSource = this.bds_LOP;
+            this.cmbMaLop.DisplayMember = "TENLOP";
+            this.cmbMaLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaLop.FormattingEnabled = true;
+            this.cmbMaLop.Location = new System.Drawing.Point(139, 176);
+            this.cmbMaLop.Name = "cmbMaLop";
+            this.cmbMaLop.Size = new System.Drawing.Size(249, 31);
+            this.cmbMaLop.TabIndex = 21;
+            this.cmbMaLop.ValueMember = "MALOP";
             // 
             // bds_LOP
             // 
             this.bds_LOP.DataMember = "LOP";
             this.bds_LOP.DataSource = this.dS;
             // 
-            // mAMHComboBox
+            // cmbMonHoc
             // 
-            this.mAMHComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_GVDK, "MAMH", true));
-            this.mAMHComboBox.DataSource = this.bds_MonHoc;
-            this.mAMHComboBox.DisplayMember = "TENMH";
-            this.mAMHComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.mAMHComboBox.FormattingEnabled = true;
-            this.mAMHComboBox.Location = new System.Drawing.Point(139, 107);
-            this.mAMHComboBox.Name = "mAMHComboBox";
-            this.mAMHComboBox.Size = new System.Drawing.Size(249, 31);
-            this.mAMHComboBox.TabIndex = 20;
-            this.mAMHComboBox.ValueMember = "MAMH";
+            this.cmbMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bds_GVDK, "MAMH", true));
+            this.cmbMonHoc.DataSource = this.bds_MonHoc;
+            this.cmbMonHoc.DisplayMember = "TENMH";
+            this.cmbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMonHoc.FormattingEnabled = true;
+            this.cmbMonHoc.Location = new System.Drawing.Point(139, 107);
+            this.cmbMonHoc.Name = "cmbMonHoc";
+            this.cmbMonHoc.Size = new System.Drawing.Size(249, 31);
+            this.cmbMonHoc.TabIndex = 20;
+            this.cmbMonHoc.ValueMember = "MAMH";
             // 
             // bds_MonHoc
             // 
@@ -620,7 +620,7 @@
             // nGAYTHIDateEdit
             // 
             this.nGAYTHIDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "NGAYTHI", true));
-            this.nGAYTHIDateEdit.EditValue = null;
+            this.nGAYTHIDateEdit.EditValue = new System.DateTime(2021, 8, 12, 14, 11, 56, 0);
             this.nGAYTHIDateEdit.Location = new System.Drawing.Point(605, 105);
             this.nGAYTHIDateEdit.MenuManager = this.barManager1;
             this.nGAYTHIDateEdit.Name = "nGAYTHIDateEdit";
@@ -631,19 +631,19 @@
             this.nGAYTHIDateEdit.Size = new System.Drawing.Size(125, 22);
             this.nGAYTHIDateEdit.TabIndex = 11;
             // 
-            // tRINHDOComboBox
+            // cmbTrinhDo
             // 
-            this.tRINHDOComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_GVDK, "TRINHDO", true));
-            this.tRINHDOComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tRINHDOComboBox.FormattingEnabled = true;
-            this.tRINHDOComboBox.Items.AddRange(new object[] {
+            this.cmbTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds_GVDK, "TRINHDO", true));
+            this.cmbTrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTrinhDo.FormattingEnabled = true;
+            this.cmbTrinhDo.Items.AddRange(new object[] {
             "A",
             "B",
             "C"});
-            this.tRINHDOComboBox.Location = new System.Drawing.Point(605, 39);
-            this.tRINHDOComboBox.Name = "tRINHDOComboBox";
-            this.tRINHDOComboBox.Size = new System.Drawing.Size(121, 31);
-            this.tRINHDOComboBox.TabIndex = 9;
+            this.cmbTrinhDo.Location = new System.Drawing.Point(605, 39);
+            this.cmbTrinhDo.Name = "cmbTrinhDo";
+            this.cmbTrinhDo.Size = new System.Drawing.Size(121, 31);
+            this.cmbTrinhDo.TabIndex = 9;
             // 
             // txt_MAGV
             // 
@@ -725,7 +725,7 @@
         private System.Windows.Forms.GroupBox gb_DangKy;
         private DevExpress.XtraEditors.SpinEdit lANSpinEdit;
         private DevExpress.XtraEditors.DateEdit nGAYTHIDateEdit;
-        private System.Windows.Forms.ComboBox tRINHDOComboBox;
+        private System.Windows.Forms.ComboBox cmbTrinhDo;
         private DevExpress.XtraEditors.TextEdit txt_MAGV;
         private DevExpress.XtraGrid.GridControl gc_giaoviendk;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -744,7 +744,7 @@
         private DSTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
         private System.Windows.Forms.BindingSource bds_LOP;
         private DSTableAdapters.LOPTableAdapter lOPTableAdapter;
-        private System.Windows.Forms.ComboBox mAMHComboBox;
-        private System.Windows.Forms.ComboBox mALOPComboBox;
+        private System.Windows.Forms.ComboBox cmbMonHoc;
+        private System.Windows.Forms.ComboBox cmbMaLop;
     }
 }
