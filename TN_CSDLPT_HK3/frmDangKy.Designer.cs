@@ -37,6 +37,10 @@ namespace TN_CSDLPT_HK3
             this.Khoa = new System.Windows.Forms.Label();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTEN = new DevExpress.XtraEditors.TextEdit();
+            this.gIAOVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dS = new TN_CSDLPT_HK3.DS();
+            this.txtMA = new DevExpress.XtraEditors.TextEdit();
             this.cmbROLE = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,23 +51,37 @@ namespace TN_CSDLPT_HK3
             this.gIAOVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gIAOVIENTableAdapter = new TN_CSDLPT_HK3.TN_CSDLPTDataSetTableAdapters.GIAOVIENTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT_HK3.TN_CSDLPTDataSetTableAdapters.TableAdapterManager();
-            this.dS = new TN_CSDLPT_HK3.DS();
-            this.gIAOVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gIAOVIENTableAdapter1 = new TN_CSDLPT_HK3.DSTableAdapters.GIAOVIENTableAdapter();
             this.tableAdapterManager1 = new TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager();
-            this.txtMA = new DevExpress.XtraEditors.TextEdit();
-            this.txtTEN = new DevExpress.XtraEditors.TextEdit();
             mAGVLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMA.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mAGVLabel
+            // 
+            mAGVLabel.AutoSize = true;
+            mAGVLabel.Location = new System.Drawing.Point(40, 181);
+            mAGVLabel.Name = "mAGVLabel";
+            mAGVLabel.Size = new System.Drawing.Size(52, 17);
+            mAGVLabel.TabIndex = 13;
+            mAGVLabel.Text = "MAGV:";
+            // 
+            // tENLabel
+            // 
+            tENLabel.AutoSize = true;
+            tENLabel.Location = new System.Drawing.Point(52, 48);
+            tENLabel.Name = "tENLabel";
+            tENLabel.Size = new System.Drawing.Size(40, 17);
+            tENLabel.TabIndex = 14;
+            tENLabel.Text = "TEN:";
             // 
             // panel1
             // 
@@ -119,10 +137,36 @@ namespace TN_CSDLPT_HK3
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 92);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(623, 384);
+            this.groupBox1.Size = new System.Drawing.Size(623, 370);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tạo tài khoản";
+            // 
+            // txtTEN
+            // 
+            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.gIAOVIENBindingSource1, "TEN", true));
+            this.txtTEN.Location = new System.Drawing.Point(98, 45);
+            this.txtTEN.Name = "txtTEN";
+            this.txtTEN.Size = new System.Drawing.Size(249, 22);
+            this.txtTEN.TabIndex = 15;
+            // 
+            // gIAOVIENBindingSource1
+            // 
+            this.gIAOVIENBindingSource1.DataMember = "GIAOVIEN";
+            this.gIAOVIENBindingSource1.DataSource = this.dS;
+            // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtMA
+            // 
+            this.txtMA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.gIAOVIENBindingSource1, "MAGV", true));
+            this.txtMA.Location = new System.Drawing.Point(98, 178);
+            this.txtMA.Name = "txtMA";
+            this.txtMA.Size = new System.Drawing.Size(249, 22);
+            this.txtMA.TabIndex = 14;
             // 
             // cmbROLE
             // 
@@ -206,16 +250,6 @@ namespace TN_CSDLPT_HK3
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TN_CSDLPT_HK3.TN_CSDLPTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gIAOVIENBindingSource1
-            // 
-            this.gIAOVIENBindingSource1.DataMember = "GIAOVIEN";
-            this.gIAOVIENBindingSource1.DataSource = this.dS;
-            // 
             // gIAOVIENTableAdapter1
             // 
             this.gIAOVIENTableAdapter1.ClearBeforeFill = true;
@@ -235,45 +269,11 @@ namespace TN_CSDLPT_HK3
             this.tableAdapterManager1.SINHVIENTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = TN_CSDLPT_HK3.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mAGVLabel
-            // 
-            mAGVLabel.AutoSize = true;
-            mAGVLabel.Location = new System.Drawing.Point(40, 181);
-            mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(52, 17);
-            mAGVLabel.TabIndex = 13;
-            mAGVLabel.Text = "MAGV:";
-            // 
-            // txtMA
-            // 
-            this.txtMA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.gIAOVIENBindingSource1, "MAGV", true));
-            this.txtMA.Location = new System.Drawing.Point(98, 178);
-            this.txtMA.Name = "txtMA";
-            this.txtMA.Size = new System.Drawing.Size(249, 22);
-            this.txtMA.TabIndex = 14;
-            // 
-            // tENLabel
-            // 
-            tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(52, 48);
-            tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(40, 17);
-            tENLabel.TabIndex = 14;
-            tENLabel.Text = "TEN:";
-            // 
-            // txtTEN
-            // 
-            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.gIAOVIENBindingSource1, "TEN", true));
-            this.txtTEN.Location = new System.Drawing.Point(98, 45);
-            this.txtTEN.Name = "txtTEN";
-            this.txtTEN.Size = new System.Drawing.Size(249, 22);
-            this.txtTEN.TabIndex = 15;
-            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 476);
+            this.ClientSize = new System.Drawing.Size(623, 462);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "frmDangKy";
@@ -283,12 +283,12 @@ namespace TN_CSDLPT_HK3
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tN_CSDLPTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMA.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -343,6 +343,7 @@ namespace TN_CSDLPT_HK3
             gb_BoDe.Enabled = false;
             gc_bode.Enabled = true;
             btnPhucHoi.Enabled = false;
+            btnReload.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -351,6 +352,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = true;
             gb_BoDe.Enabled = true;
             gc_bode.Enabled = false;
+            btnReload.Enabled = false;
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

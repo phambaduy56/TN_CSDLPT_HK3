@@ -121,11 +121,13 @@ namespace TN_CSDLPT_HK3
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Them";
-            vitri = bds_Khoa.Position;
+     
             bds_Khoa.AddNew();
+            vitri = bds_Khoa.Position;
             txtMACS.Text = maCOSO.ToString();
             txtMACS.Enabled = false;
             Hien_thi_khi_them();
+            txtMAKH.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -206,7 +208,8 @@ namespace TN_CSDLPT_HK3
                         txtMAKH.Focus();
                         return;
                     }
-
+                    if(kiemTraTruocKhiGhi())
+                    {
                         bds_Khoa.EndEdit();
                         bds_Khoa.ResetCurrentItem();
                         this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
@@ -217,6 +220,8 @@ namespace TN_CSDLPT_HK3
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();
                         btnPhucHoi.Enabled = true;
+                    }    
+                
                 }
                 if (Program.control == "Sua")
                 {
@@ -282,8 +287,12 @@ namespace TN_CSDLPT_HK3
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bds_Khoa.CancelEdit();
-            undolist.Pop();
-            undolist.Pop();
+
+            if(undolist.Count > 0)
+            {
+                undolist.Pop();
+                undolist.Pop();
+            }    
             this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
             this.kHOATableAdapter.Fill(this.dS.KHOA);
             if (Program.mGroup == "PGV")
@@ -313,6 +322,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = false;
             gbKhoa.Enabled = false;
             gc_khoa.Enabled = true;
+            btnReload.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -321,6 +331,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = true;
             gbKhoa.Enabled = true;
             gc_khoa.Enabled = false;
+            btnReload.Enabled = false;
         }
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -339,7 +350,7 @@ namespace TN_CSDLPT_HK3
                     txtMAKH.Text = TT_Kho[0];
                     txtTENKH.Text = TT_Kho[1];
                     txtMACS.Text = TT_Kho[2];
-                    this.bds_Lop.EndEdit();
+                    this.bds_Khoa.EndEdit();
                     this.kHOATableAdapter.Update(this.dS.KHOA);
                 }
                 else if (statement.Equals("INSERT"))

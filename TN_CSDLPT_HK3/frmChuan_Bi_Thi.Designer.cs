@@ -573,7 +573,7 @@
             // 
             this.tHOIGIANSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "THOIGIAN", true));
             this.tHOIGIANSpinEdit.EditValue = new decimal(new int[] {
-            0,
+            15,
             0,
             0,
             0});
@@ -582,6 +582,16 @@
             this.tHOIGIANSpinEdit.Name = "tHOIGIANSpinEdit";
             this.tHOIGIANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tHOIGIANSpinEdit.Properties.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.tHOIGIANSpinEdit.Properties.MinValue = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.tHOIGIANSpinEdit.Size = new System.Drawing.Size(125, 24);
             this.tHOIGIANSpinEdit.TabIndex = 17;
             // 
@@ -589,7 +599,7 @@
             // 
             this.sOCAUTHISpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "SOCAUTHI", true));
             this.sOCAUTHISpinEdit.EditValue = new decimal(new int[] {
-            0,
+            10,
             0,
             0,
             0});
@@ -598,6 +608,16 @@
             this.sOCAUTHISpinEdit.Name = "sOCAUTHISpinEdit";
             this.sOCAUTHISpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.sOCAUTHISpinEdit.Properties.MaxValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.sOCAUTHISpinEdit.Properties.MinValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.sOCAUTHISpinEdit.Size = new System.Drawing.Size(125, 24);
             this.sOCAUTHISpinEdit.TabIndex = 15;
             // 
@@ -605,7 +625,7 @@
             // 
             this.lANSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "LAN", true));
             this.lANSpinEdit.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -614,6 +634,16 @@
             this.lANSpinEdit.Name = "lANSpinEdit";
             this.lANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lANSpinEdit.Properties.MaxValue = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.lANSpinEdit.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.lANSpinEdit.Size = new System.Drawing.Size(125, 24);
             this.lANSpinEdit.TabIndex = 13;
             // 

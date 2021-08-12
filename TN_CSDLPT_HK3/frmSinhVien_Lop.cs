@@ -333,6 +333,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = false;
             gb_SinhVien.Enabled = false;
             gc_sinhvien.Enabled = gc_lop.Enabled = true;
+            btnReload.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -341,6 +342,8 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = true;
             gb_SinhVien.Enabled = true;
             gc_sinhvien.Enabled = gc_lop.Enabled = false;
+            btnReload.Enabled = false;
+
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -385,6 +388,7 @@ namespace TN_CSDLPT_HK3
                     txtMaSv.Text = TT_Kho[0];
                     txtHo.Text = TT_Kho[1];
                     txtTen.Text = TT_Kho[2];
+                   // date_NgaySinh.DateTime.ToString("yyyy-MM-dd") = TT_Kho[3];
                     txtDiaChi.Text = TT_Kho[4];
                     this.bds_SinhVien.EndEdit();
                     this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);

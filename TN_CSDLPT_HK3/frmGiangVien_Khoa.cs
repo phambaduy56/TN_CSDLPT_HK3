@@ -278,8 +278,11 @@ namespace TN_CSDLPT_HK3
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            undolist.Pop();
-            undolist.Pop();
+            if(undolist.Count > 0)
+            {
+                undolist.Pop();
+                undolist.Pop();
+            }    
             bds_GiaoVien.CancelEdit();
             this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
@@ -301,6 +304,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = false;
             gbGiaoVien.Enabled = false;
             gc_khoa.Enabled = gc_giaovien.Enabled = true;
+            btnReload.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -309,6 +313,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = true;
             gbGiaoVien.Enabled = true;
             gc_khoa.Enabled = gc_giaovien.Enabled = false;
+            btnReload.Enabled = false;
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -129,6 +129,8 @@ namespace TN_CSDLPT_HK3
             txtTENLOP.Enabled = true;
             cmbMAKH.SelectedIndex = 1;
             cmbMAKH.SelectedIndex = 0;
+            txtMLOP.Enabled = true;
+            cmbMAKH.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -304,6 +306,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = false;
             gbLop.Enabled = false;
             gc_Lop.Enabled = true;
+            btnReload.Enabled = true;
         }
 
         private void Hien_thi_khi_them()
@@ -312,6 +315,7 @@ namespace TN_CSDLPT_HK3
             btnGhi.Enabled = btnHuy.Enabled = true;
             gbLop.Enabled = true;
             gc_Lop.Enabled = false;
+            btnReload.Enabled = false;
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
