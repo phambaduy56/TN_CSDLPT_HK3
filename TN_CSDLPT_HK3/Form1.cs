@@ -47,6 +47,9 @@ namespace TN_CSDLPT_HK3
                 btn_ban_dau();
                 btnThi.Enabled = true;
                 btnInBaiThi.Enabled = true;
+                btnDangKy.Enabled = false;
+                btnXoaTK.Enabled = false;
+
             }
  
         }
