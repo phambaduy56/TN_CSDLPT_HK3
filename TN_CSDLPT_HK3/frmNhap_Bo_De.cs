@@ -16,6 +16,7 @@ namespace TN_CSDLPT_HK3
         private BindingSource bds = new BindingSource();
         private int vitri = 0;
         Stack undolist = new Stack();
+        String mgv = "";
 
         private String cauhoi = "";
         private String maGV = "";
@@ -124,27 +125,40 @@ namespace TN_CSDLPT_HK3
             txt_DapAn.SelectedIndex = 0;
         }
 
+
+
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.control = "Sua";
             vitri = bds_bode.Position;
 
-            undolist.Push(txtCauHoi.Text + "#" + 
-                cmbMonHoc.SelectedIndex + "#" + 
-                cmbTrinhDo.SelectedIndex + "#" +
-                txtMAGV.Text + "#" +
-                txtNoiDung.Text + "#" +
-                txt_A.Text + "#" +
-                txt_B.Text + "#" +
-                txt_C.Text + "#" +
-                txt_D.Text + "#" +
-                txt_DapAn.SelectedIndex
-           );
-            undolist.Push("EDIT");
-            Hien_thi_khi_them();
-            txtCauHoi.Enabled = false;
-            txtMAGV.Enabled = false;
+            maGV = ((DataRowView)bds_bode[vitri])["MAGV"].ToString();
+            mgv = Program.username;
+
+            if (!maGV.Trim().Equals(mgv))
+            {
+                MessageBox.Show("Bạn không có quyền chỉnh sửa!");
+                return;
+            }
             
+               undolist.Push(txtCauHoi.Text + "#" +
+               cmbMonHoc.SelectedIndex + "#" +
+               cmbTrinhDo.SelectedIndex + "#" +
+               txtMAGV.Text + "#" +
+               txtNoiDung.Text + "#" +
+               txt_A.Text + "#" +
+               txt_B.Text + "#" +
+               txt_C.Text + "#" +
+               txt_D.Text + "#" +
+               txt_DapAn.SelectedIndex);
+
+                undolist.Push("EDIT");
+                Hien_thi_khi_them();
+                txtCauHoi.Enabled = false;
+          
+
+           
+
         }
 
         private bool kiemTraTruocKhiGhi()
@@ -281,9 +295,21 @@ namespace TN_CSDLPT_HK3
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            vitri = bds_bode.Position;
+
+            maGV = ((DataRowView)bds_bode[vitri])["MAGV"].ToString();
+            mgv = Program.username;
+
+            if (!maGV.Trim().Equals(mgv))
+            {
+                MessageBox.Show("Bạn không có quyền chỉnh xóa câu hỏi!");
+                return;
+            }
+
+
             if (MessageBox.Show("Bạn có muốn xóa câu hỏi "  + " ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-
+            
                 try
                 {
                     undolist.Push(txtCauHoi.Text + "#" +

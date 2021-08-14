@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mAMHLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.time_Thi = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lb_TENLOP = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.baithiTableAdapter1 = new TN_CSDLPT_HK3.DSTableAdapters.BAITHITableAdapter();
             this.panel_thi = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnThoat = new System.Windows.Forms.Button();
             mAMHLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,6 +107,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sinh viên";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(1193, 46);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(137, 39);
+            this.btnThoat.TabIndex = 14;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // time_Thi
             // 
@@ -423,25 +433,15 @@
             this.panel_thi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_thi.Location = new System.Drawing.Point(0, 264);
             this.panel_thi.Name = "panel_thi";
-            this.panel_thi.Size = new System.Drawing.Size(1353, 324);
+            this.panel_thi.Size = new System.Drawing.Size(1353, 479);
             this.panel_thi.TabIndex = 2;
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Location = new System.Drawing.Point(1193, 46);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(137, 39);
-            this.btnThoat.TabIndex = 14;
-            this.btnThoat.Text = "THOÁT";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1353, 588);
+            this.ClientSize = new System.Drawing.Size(1353, 743);
             this.Controls.Add(this.panel_thi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

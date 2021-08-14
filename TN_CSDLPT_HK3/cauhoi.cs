@@ -17,6 +17,8 @@ namespace TN_CSDLPT_HK3
             InitializeComponent();
         }
 
+        
+
         #region Properties
         private int stt;
         private int cauHoi;

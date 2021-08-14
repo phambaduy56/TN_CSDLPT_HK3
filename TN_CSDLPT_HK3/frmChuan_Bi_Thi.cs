@@ -137,16 +137,98 @@ namespace TN_CSDLPT_HK3
 
         private bool kiemTraTruocKhiGhi()
         {
-           
-            //if (txtMAKH.Text == "")
-            //{
-            //    MessageBox.Show("Mã khoa không được để rỗng!");
-            //    txtMAKH.Focus();
-            //    return false;
-            //}
+            if (date_NgayThi.Text.ToString().Trim().Equals(""))
+            {
+                MessageBox.Show("Bạn chưa nhập ngày bắt đầu", "Thông báo", MessageBoxButtons.OK);
+                return false;
+            }
+            DateTime date1 = DateTime.Now;
+            DateTime date2 = date_NgayThi.DateTime.Date;
+            int compare = DateTime.Compare(date1, date2);
+            if (compare > 0)
+            {
+                MessageBox.Show("Ngày bắt đầu không thể nhỏ hơn ngày hiện tại!");
+                return false;
+            }
 
+            if (spin_lan.EditValue == null)
+            {
+                MessageBox.Show("Lần thi không được để trống!");
+                return false;
+            }
+
+            if (spin_CauThi.EditValue == null)
+            {
+                MessageBox.Show("Câu thi không được để trống!");
+                return false;
+            }
+
+            if (spin_TimeThi.EditValue == null)
+            {
+                MessageBox.Show("Thời gian không được để trống!");
+                return false;
+            }
+
+            if(spin_CauThi.Value > 100)
+            {
+                MessageBox.Show("Số câu thi không được > 100!");
+                return false;
+            }
+
+            if (spin_CauThi.Value < 10)
+            {
+                MessageBox.Show("Số câu thi không được < 10!");
+                return false;
+            }
+
+            if(spin_TimeThi.Value < 15)
+            {
+                MessageBox.Show("Thời gian thi tối thiếu là 15 phút!");
+                return false;
+            }
+
+            if (spin_TimeThi.Value > 60)
+            {
+                MessageBox.Show("Thời gian thi không được lớn hơn 60 phút!");
+                return false;
+            }
+
+            if(spin_lan.Value > 2)
+            {
+                MessageBox.Show("Lần thi không được > 2!");
+                return false;
+            }
+
+            if (spin_lan.Value < 1)
+            {
+                MessageBox.Show("Lần thi tối thiểu là 1!");
+                return false;
+            }
 
             return true;
+        }
+
+        private bool kiem_tra__gv_dk()
+        {
+            //String strLenh = "EXEC SP_THONG_THI N'" + cmb_MonHoc.SelectedValue.ToString()
+            //                   + "', N'" + date_NgayThi.DateTime.ToString("yyyy-MM-dd HH:mm:ss")
+            //                   + "', " + spin_LanThi.Value;
+
+            string str = "exec SP_KT_GV_DANGKY N'" +
+                            cmbMonHoc.SelectedValue.ToString()
+                            + "', N'" + cmbMaLop.SelectedValue.ToString()
+                            + "', " + spin_lan.Value;
+
+            Program.myReader = Program.ExecSqlDataReader(str);
+            Program.myReader.Read();
+
+            String kq = Program.myReader.GetString(0);
+            Program.myReader.Close();
+            if (kq == "1")
+            {
+                return true;
+            }
+            return false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -155,13 +237,19 @@ namespace TN_CSDLPT_HK3
             {
                 if (Program.control == "Them")
                 {
+
+                    //if(kiem_tra__gv_dk() == true)
+                    //{
+                    //    MessageBox.Show("Lớp đã đăng ký thi rồi không được thi lại");
+                    //    return;
+                    //}
+
                     if (kiemTraTruocKhiGhi())
                     {
                         bds_GVDK.EndEdit();
                         bds_GVDK.ResetCurrentItem();
                         this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.gIAOVIEN_DANGKYTableAdapter.Update(this.dS.GIAOVIEN_DANGKY);
-                        bds_GVDK.MoveFirst();
                         bds_GVDK.Position = vitri;
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK);
                         Btn_ban_dau();

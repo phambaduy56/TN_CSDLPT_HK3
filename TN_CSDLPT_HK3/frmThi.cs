@@ -66,6 +66,22 @@ namespace TN_CSDLPT_HK3
 
         }
 
+        //private String kiemtrasinhvienthuoclop()
+        //{
+        //    String strLenh = "EXEC SP_KIEM_TRA_MA_SV_THUOC_LOP N'" + Program.mHoten.Trim()
+        //                 + "', N'" + Program.MASV.Trim() + "'";
+
+        //    SqlDataReader myReader;
+
+        //    myReader = Program.ExecSqlDataReader(strLenh);
+        //    myReader.Read();
+
+        //    String kq = Program.myReader.GetString(0);
+        //    Program.myReader.Close();
+            
+        //    return kq;
+        //}
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(date_NgayThi.Text))
@@ -114,7 +130,7 @@ namespace TN_CSDLPT_HK3
                 Program.myReader.Close();
             } 
             else
-            {
+            {   //
                 string strLenh1 = "EXEC SP_KIEM_TRA_SV N'" + Program.MASV
                 + "', N'" + cmb_MonHoc.SelectedValue.ToString() +
                 "', " + spin_LanThi.Value;
@@ -122,10 +138,7 @@ namespace TN_CSDLPT_HK3
 
                 Program.myReader.Read();
 
-                String kq = Program.myReader.GetString(0);
-                //int kq = Program.ExecSqlNonQuery(strLenh1);
-                // Program.myReader.Close();
-
+                String kq = Program.myReader.GetString(0);              
                 if (kq == "1")
                 {
                     MessageBox.Show("Sinh viên đã thi rồi! \n Không được thi lại!", "", MessageBoxButtons.OK);
@@ -133,15 +146,18 @@ namespace TN_CSDLPT_HK3
                 }
                 Program.myReader.Close();
 
-
+                //
                 String strLenh = "EXEC SP_THONG_THI N'" + cmb_MonHoc.SelectedValue.ToString()
                                 + "', N'" + date_NgayThi.DateTime.ToString("yyyy-MM-dd HH:mm:ss")
                                 + "', " + spin_LanThi.Value;
                 Program.myReader = Program.ExecSqlDataReader(strLenh);
+                
+
                 if (Program.myReader == null) return;
                 if (Program.myReader.Read() == false)
                 {
                     MessageBox.Show("Thông tin đăng ký thi không tồn tại!", "", MessageBoxButtons.OK);
+                    
                 }
                 else
                 {

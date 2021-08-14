@@ -73,10 +73,10 @@
             this.cmbMonHoc = new System.Windows.Forms.ComboBox();
             this.bds_MonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.tHOIGIANSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.sOCAUTHISpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.lANSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.nGAYTHIDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.spin_TimeThi = new DevExpress.XtraEditors.SpinEdit();
+            this.spin_CauThi = new DevExpress.XtraEditors.SpinEdit();
+            this.spin_lan = new DevExpress.XtraEditors.SpinEdit();
+            this.date_NgayThi = new DevExpress.XtraEditors.DateEdit();
             this.cmbTrinhDo = new System.Windows.Forms.ComboBox();
             this.txt_MAGV = new DevExpress.XtraEditors.TextEdit();
             this.mONHOCTableAdapter = new TN_CSDLPT_HK3.DSTableAdapters.MONHOCTableAdapter();
@@ -98,11 +98,11 @@
             this.gb_DangKy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bds_LOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tHOIGIANSpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sOCAUTHISpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lANSpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spin_TimeThi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spin_CauThi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spin_lan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_NgayThi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_NgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_MAGV.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -504,13 +504,13 @@
             this.gb_DangKy.Controls.Add(this.cmbMonHoc);
             this.gb_DangKy.Controls.Add(this.label2);
             this.gb_DangKy.Controls.Add(tHOIGIANLabel);
-            this.gb_DangKy.Controls.Add(this.tHOIGIANSpinEdit);
+            this.gb_DangKy.Controls.Add(this.spin_TimeThi);
             this.gb_DangKy.Controls.Add(sOCAUTHILabel);
-            this.gb_DangKy.Controls.Add(this.sOCAUTHISpinEdit);
+            this.gb_DangKy.Controls.Add(this.spin_CauThi);
             this.gb_DangKy.Controls.Add(lANLabel);
-            this.gb_DangKy.Controls.Add(this.lANSpinEdit);
+            this.gb_DangKy.Controls.Add(this.spin_lan);
             this.gb_DangKy.Controls.Add(nGAYTHILabel);
-            this.gb_DangKy.Controls.Add(this.nGAYTHIDateEdit);
+            this.gb_DangKy.Controls.Add(this.date_NgayThi);
             this.gb_DangKy.Controls.Add(tRINHDOLabel);
             this.gb_DangKy.Controls.Add(this.cmbTrinhDo);
             this.gb_DangKy.Controls.Add(mAGVLabel);
@@ -569,97 +569,97 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "PHÚT";
             // 
-            // tHOIGIANSpinEdit
+            // spin_TimeThi
             // 
-            this.tHOIGIANSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "THOIGIAN", true));
-            this.tHOIGIANSpinEdit.EditValue = new decimal(new int[] {
+            this.spin_TimeThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "THOIGIAN", true));
+            this.spin_TimeThi.EditValue = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.tHOIGIANSpinEdit.Location = new System.Drawing.Point(981, 103);
-            this.tHOIGIANSpinEdit.MenuManager = this.barManager1;
-            this.tHOIGIANSpinEdit.Name = "tHOIGIANSpinEdit";
-            this.tHOIGIANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spin_TimeThi.Location = new System.Drawing.Point(981, 103);
+            this.spin_TimeThi.MenuManager = this.barManager1;
+            this.spin_TimeThi.Name = "spin_TimeThi";
+            this.spin_TimeThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tHOIGIANSpinEdit.Properties.MaxValue = new decimal(new int[] {
+            this.spin_TimeThi.Properties.MaxValue = new decimal(new int[] {
             60,
             0,
             0,
             0});
-            this.tHOIGIANSpinEdit.Properties.MinValue = new decimal(new int[] {
+            this.spin_TimeThi.Properties.MinValue = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.tHOIGIANSpinEdit.Size = new System.Drawing.Size(125, 24);
-            this.tHOIGIANSpinEdit.TabIndex = 17;
+            this.spin_TimeThi.Size = new System.Drawing.Size(125, 24);
+            this.spin_TimeThi.TabIndex = 17;
             // 
-            // sOCAUTHISpinEdit
+            // spin_CauThi
             // 
-            this.sOCAUTHISpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "SOCAUTHI", true));
-            this.sOCAUTHISpinEdit.EditValue = new decimal(new int[] {
+            this.spin_CauThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "SOCAUTHI", true));
+            this.spin_CauThi.EditValue = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.sOCAUTHISpinEdit.Location = new System.Drawing.Point(981, 29);
-            this.sOCAUTHISpinEdit.MenuManager = this.barManager1;
-            this.sOCAUTHISpinEdit.Name = "sOCAUTHISpinEdit";
-            this.sOCAUTHISpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spin_CauThi.Location = new System.Drawing.Point(981, 29);
+            this.spin_CauThi.MenuManager = this.barManager1;
+            this.spin_CauThi.Name = "spin_CauThi";
+            this.spin_CauThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sOCAUTHISpinEdit.Properties.MaxValue = new decimal(new int[] {
+            this.spin_CauThi.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.sOCAUTHISpinEdit.Properties.MinValue = new decimal(new int[] {
+            this.spin_CauThi.Properties.MinValue = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.sOCAUTHISpinEdit.Size = new System.Drawing.Size(125, 24);
-            this.sOCAUTHISpinEdit.TabIndex = 15;
+            this.spin_CauThi.Size = new System.Drawing.Size(125, 24);
+            this.spin_CauThi.TabIndex = 15;
             // 
-            // lANSpinEdit
+            // spin_lan
             // 
-            this.lANSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "LAN", true));
-            this.lANSpinEdit.EditValue = new decimal(new int[] {
+            this.spin_lan.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "LAN", true));
+            this.spin_lan.EditValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.lANSpinEdit.Location = new System.Drawing.Point(601, 169);
-            this.lANSpinEdit.MenuManager = this.barManager1;
-            this.lANSpinEdit.Name = "lANSpinEdit";
-            this.lANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spin_lan.Location = new System.Drawing.Point(601, 169);
+            this.spin_lan.MenuManager = this.barManager1;
+            this.spin_lan.Name = "spin_lan";
+            this.spin_lan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lANSpinEdit.Properties.MaxValue = new decimal(new int[] {
+            this.spin_lan.Properties.MaxValue = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.lANSpinEdit.Properties.MinValue = new decimal(new int[] {
+            this.spin_lan.Properties.MinValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.lANSpinEdit.Size = new System.Drawing.Size(125, 24);
-            this.lANSpinEdit.TabIndex = 13;
+            this.spin_lan.Size = new System.Drawing.Size(125, 24);
+            this.spin_lan.TabIndex = 13;
             // 
-            // nGAYTHIDateEdit
+            // date_NgayThi
             // 
-            this.nGAYTHIDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "NGAYTHI", true));
-            this.nGAYTHIDateEdit.EditValue = new System.DateTime(2021, 8, 12, 14, 11, 56, 0);
-            this.nGAYTHIDateEdit.Location = new System.Drawing.Point(605, 105);
-            this.nGAYTHIDateEdit.MenuManager = this.barManager1;
-            this.nGAYTHIDateEdit.Name = "nGAYTHIDateEdit";
-            this.nGAYTHIDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.date_NgayThi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bds_GVDK, "NGAYTHI", true));
+            this.date_NgayThi.EditValue = new System.DateTime(2021, 8, 12, 14, 11, 56, 0);
+            this.date_NgayThi.Location = new System.Drawing.Point(605, 105);
+            this.date_NgayThi.MenuManager = this.barManager1;
+            this.date_NgayThi.Name = "date_NgayThi";
+            this.date_NgayThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nGAYTHIDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.date_NgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nGAYTHIDateEdit.Size = new System.Drawing.Size(125, 22);
-            this.nGAYTHIDateEdit.TabIndex = 11;
+            this.date_NgayThi.Size = new System.Drawing.Size(125, 22);
+            this.date_NgayThi.TabIndex = 11;
             // 
             // cmbTrinhDo
             // 
@@ -719,11 +719,11 @@
             this.gb_DangKy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bds_LOP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_MonHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tHOIGIANSpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sOCAUTHISpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lANSpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spin_TimeThi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spin_CauThi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spin_lan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_NgayThi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_NgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_MAGV.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -753,8 +753,8 @@
         private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.GroupBox gb_DangKy;
-        private DevExpress.XtraEditors.SpinEdit lANSpinEdit;
-        private DevExpress.XtraEditors.DateEdit nGAYTHIDateEdit;
+        private DevExpress.XtraEditors.SpinEdit spin_lan;
+        private DevExpress.XtraEditors.DateEdit date_NgayThi;
         private System.Windows.Forms.ComboBox cmbTrinhDo;
         private DevExpress.XtraEditors.TextEdit txt_MAGV;
         private DevExpress.XtraGrid.GridControl gc_giaoviendk;
@@ -768,8 +768,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSOCAUTHI;
         private DevExpress.XtraGrid.Columns.GridColumn colTHOIGIAN;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.SpinEdit tHOIGIANSpinEdit;
-        private DevExpress.XtraEditors.SpinEdit sOCAUTHISpinEdit;
+        private DevExpress.XtraEditors.SpinEdit spin_TimeThi;
+        private DevExpress.XtraEditors.SpinEdit spin_CauThi;
         private System.Windows.Forms.BindingSource bds_MonHoc;
         private DSTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
         private System.Windows.Forms.BindingSource bds_LOP;
