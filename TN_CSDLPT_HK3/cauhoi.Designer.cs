@@ -54,11 +54,11 @@
             // 
             // lb_NoiDung
             // 
-            this.lb_NoiDung.AutoSize = true;
+            this.lb_NoiDung.AllowDrop = true;
             this.lb_NoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NoiDung.Location = new System.Drawing.Point(263, 50);
+            this.lb_NoiDung.Location = new System.Drawing.Point(223, 21);
             this.lb_NoiDung.Name = "lb_NoiDung";
-            this.lb_NoiDung.Size = new System.Drawing.Size(219, 29);
+            this.lb_NoiDung.Size = new System.Drawing.Size(1229, 58);
             this.lb_NoiDung.TabIndex = 1;
             this.lb_NoiDung.Text = "Nội dung câu hỏi";
             // 
@@ -120,44 +120,40 @@
             // 
             // lb_textA
             // 
-            this.lb_textA.AutoSize = true;
             this.lb_textA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_textA.Location = new System.Drawing.Point(244, 108);
+            this.lb_textA.Location = new System.Drawing.Point(223, 108);
             this.lb_textA.Name = "lb_textA";
-            this.lb_textA.Size = new System.Drawing.Size(259, 25);
+            this.lb_textA.Size = new System.Drawing.Size(1223, 25);
             this.lb_textA.TabIndex = 12;
             this.lb_textA.Text = "NỘI DUNG CÂU TRẢ LỜI";
             this.lb_textA.Click += new System.EventHandler(this.lb_textA_Click);
             // 
             // lb_textB
             // 
-            this.lb_textB.AutoSize = true;
             this.lb_textB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_textB.Location = new System.Drawing.Point(244, 159);
+            this.lb_textB.Location = new System.Drawing.Point(223, 159);
             this.lb_textB.Name = "lb_textB";
-            this.lb_textB.Size = new System.Drawing.Size(259, 25);
+            this.lb_textB.Size = new System.Drawing.Size(1239, 25);
             this.lb_textB.TabIndex = 13;
             this.lb_textB.Text = "NỘI DUNG CÂU TRẢ LỜI";
             this.lb_textB.Click += new System.EventHandler(this.lb_textB_Click);
             // 
             // lb_textC
             // 
-            this.lb_textC.AutoSize = true;
             this.lb_textC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_textC.Location = new System.Drawing.Point(244, 214);
+            this.lb_textC.Location = new System.Drawing.Point(223, 214);
             this.lb_textC.Name = "lb_textC";
-            this.lb_textC.Size = new System.Drawing.Size(259, 25);
+            this.lb_textC.Size = new System.Drawing.Size(1229, 25);
             this.lb_textC.TabIndex = 14;
             this.lb_textC.Text = "NỘI DUNG CÂU TRẢ LỜI";
             this.lb_textC.Click += new System.EventHandler(this.lb_textC_Click);
             // 
             // lb_textD
             // 
-            this.lb_textD.AutoSize = true;
             this.lb_textD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_textD.Location = new System.Drawing.Point(244, 268);
+            this.lb_textD.Location = new System.Drawing.Point(223, 270);
             this.lb_textD.Name = "lb_textD";
-            this.lb_textD.Size = new System.Drawing.Size(259, 25);
+            this.lb_textD.Size = new System.Drawing.Size(1229, 25);
             this.lb_textD.TabIndex = 15;
             this.lb_textD.Text = "NỘI DUNG CÂU TRẢ LỜI";
             this.lb_textD.Click += new System.EventHandler(this.lb_textD_Click);
@@ -178,7 +174,7 @@
             this.Controls.Add(this.lb_NoiDung);
             this.Controls.Add(this.lb_STT);
             this.Name = "cauhoi";
-            this.Size = new System.Drawing.Size(1337, 438);
+            this.Size = new System.Drawing.Size(1499, 438);
             this.Load += new System.EventHandler(this.cauhoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             this.ResumeLayout(false);

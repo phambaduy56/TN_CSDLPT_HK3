@@ -103,7 +103,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1353, 127);
+            this.groupBox1.Size = new System.Drawing.Size(1915, 127);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sinh viên";
@@ -237,7 +237,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1353, 137);
+            this.groupBox2.Size = new System.Drawing.Size(1915, 137);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin thi";
@@ -355,7 +355,7 @@
             // 
             // date_NgayThi
             // 
-            this.date_NgayThi.EditValue = null;
+            this.date_NgayThi.EditValue = new System.DateTime(2021, 8, 10, 0, 0, 0, 0);
             this.date_NgayThi.Location = new System.Drawing.Point(414, 52);
             this.date_NgayThi.Margin = new System.Windows.Forms.Padding(4);
             this.date_NgayThi.Name = "date_NgayThi";
@@ -433,7 +433,7 @@
             this.panel_thi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_thi.Location = new System.Drawing.Point(0, 264);
             this.panel_thi.Name = "panel_thi";
-            this.panel_thi.Size = new System.Drawing.Size(1353, 479);
+            this.panel_thi.Size = new System.Drawing.Size(1915, 479);
             this.panel_thi.TabIndex = 2;
             // 
             // frmThi
@@ -441,7 +441,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1353, 743);
+            this.ClientSize = new System.Drawing.Size(1915, 743);
             this.Controls.Add(this.panel_thi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

@@ -65,7 +65,7 @@ namespace TN_CSDLPT_HK3
 
             if(Program.DANG_NHAP == 1)
             {
-                Program.mlogin = "sa";
+                Program.mlogin = "HTKN";
                 Program.password = "123456";
                 if (Program.KetNoi() == 0) return;
                 Program.strlenh = " exec SP_LAY_THONG_TIN_DANG_NHAP_SINHVIEN '" + txtLogin.Text + "'";
